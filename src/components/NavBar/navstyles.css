@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.nav-bg {
+    background: linear-gradient(45deg, #56bd56, lightblue);
+}
