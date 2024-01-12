@@ -1,7 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .nav-bg {
-    background: linear-gradient(45deg, #56bd56, lightblue);
+    background: linear-gradient(45deg, #56bd56, rgb(106, 98, 211));
+}
+
+.nav-blur{
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(10px);
+}
+
+.nav-width {
+    width: calc(100% - 4rem);
+}
+
+.nav-link {
+    transition: all .5s ease-in-out;
+}
+
+.nav-link:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.nav-animation {
+    animation: flyDown linear .5s;
+}
+
+.nav-animation-back{
+    animation: fadeIn linear 1s;
+}
+
+@keyframes flyDown {
+    0% {
+        transform: translateY(-7rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
