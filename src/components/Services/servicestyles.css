@@ -1,0 +1,27 @@
+.services-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.services-card{
+    width: 100%;
+}
+
+.services-items-list {
+    background-color: var(--color-secondary);
+}
+
+@media screen and (max-width: 640px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-card{
+        width: 90%;
+    }
+}
