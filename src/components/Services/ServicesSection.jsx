@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./servicestyles.css";
 import SectionWrapper from "../Reusable/SectionWrapper";
 import { Langs } from "@/langs/langs";
@@ -25,7 +25,25 @@ const RecyclableItem = ({ category, items }) => {
 
 const ServiceCard = ({ title, description }) => {
   const transition = { type: "spring", duration: 1.5 };
-  const inMobile = window.innerWidth <= 640 ? true : false;
+  const [inMobile, setInMobile] = useState(false);
+
+  useEffect(() => {
+    // Check window width only in client-side (browser) environment
+    const handleResize = () => {
+      setInMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Attach event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <motion.div
@@ -39,6 +57,8 @@ const ServiceCard = ({ title, description }) => {
     </motion.div>
   );
 };
+
+
 
 const ServicesSection = () => {
   return (

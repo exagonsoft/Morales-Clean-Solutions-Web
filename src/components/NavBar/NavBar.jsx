@@ -43,7 +43,7 @@ const NavSideBar = ({ toggleMenu }) => {
 const NavBar = () => {
   const [atHome, setAtHome] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  const inMobile = window.innerWidth <= 768 ? true : false;
+  const [inMobile, setInMobile] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen((prevState) => !menuOpen);
@@ -67,6 +67,24 @@ const NavBar = () => {
     // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Check window width only in client-side (browser) environment
+    const handleResize = () => {
+      setInMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Attach event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
