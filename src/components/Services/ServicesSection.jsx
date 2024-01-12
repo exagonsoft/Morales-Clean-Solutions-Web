@@ -47,7 +47,7 @@ const ServiceCard = ({ title, description }) => {
 
   return (
     <motion.div
-      initial={{ left: inMobile ? "-150px" : "-120%" }}
+      initial={{ left: inMobile ? "-150px" : "-70rem" }}
       whileInView={{ left: 0 }}
       transition={{ ...transition, type: "tween" }}
       className="services-card flex flex-col relative gap-4 p-8 rounded-lg bg-[--color-primary] shadow-lg"
