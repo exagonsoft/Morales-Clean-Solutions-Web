@@ -10,6 +10,7 @@
   --color-secondary: rgb(106, 98, 211);
   --color-primary-comments: #4f4949;
   --font-size-large: 1.5em;
+  --sm-device-screen: 1366px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -108,7 +109,27 @@ body {
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1640px) {
+  .hero-green-declaration>div>span {
+    font-size: 1rem;
+  }
+
+  .hero-green-declaration>span {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .hero-green-declaration>div>span {
+    font-size: .8rem;
+  }
+
+  .hero-green-declaration>span {
+    font-size: .8rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
   .section-wrapper-title {
     font-size: 1.5rem;
     line-height: .5;
