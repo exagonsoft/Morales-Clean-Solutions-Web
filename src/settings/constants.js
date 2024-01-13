@@ -23,4 +23,9 @@ export const NavLinks = [
   },
 ];
 
+export const Dimensions = {
+  mobileScreen: 850,
+
+}
+
 

@@ -116,10 +116,14 @@
 }
 
 
+@media screen and (max-width: 1640px) {
+    .hero-heading {
+        font-size: 2.5rem;
+    }
+}
 
 
-
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 850px) {
     .hero-flex {
         flex-direction: column;
     }
@@ -140,7 +144,7 @@
     }
 
     .hero-heading {
-        font-size: xx-large;
+        font-size: 2.5rem;
         align-items: center;
         justify-content: center;
     }
@@ -175,5 +179,5 @@
         justify-content: center;
     }
 
-    
+
 }

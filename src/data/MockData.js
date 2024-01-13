@@ -160,3 +160,49 @@ export const Slogans = [
     slogan: "Smart waste disposal for a smarter and cleaner living environment.",
   },
 ];
+
+export const packagedWastePlan = {
+  name: "Basic Plan",
+  includes: [
+    "Collection of packaged waste",
+    "Transportation of packaged waste",
+    "Safe loading and unloading",
+    "Basic classification",
+  ],
+  lacks: [
+    "Collection of blurred waste",
+    "Collection of hazardous waste",
+    "Advanced classification",
+    "Specialized handling",
+  ],
+};
+
+export const blurredWastePlan = {
+  name: "Premium Plan",
+  includes: [
+    "Collection of packaged waste",
+    "Collection of blurred waste",
+    "Transportation of packaged and blurred waste",
+    "Safe loading and unloading",
+    "Advanced classification",
+  ],
+  lacks: [
+    "Collection of hazardous waste",
+    "Specialized handling of blurred waste",
+  ],
+};
+
+export const hazardousWastePlan = {
+  name: "Complete Plan",
+  includes: [
+    "Collection of packaged waste",
+    "Collection of blurred waste",
+    "Collection of hazardous waste",
+    "Transportation of packaged, blurred, and hazardous waste",
+    "Safe loading and unloading",
+    "Specialized classification",
+    "Specialized handling of hazardous waste",
+  ],
+  lacks: [],
+};
+

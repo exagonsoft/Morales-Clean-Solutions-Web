@@ -7,6 +7,7 @@ import { Langs } from "@/langs/langs";
 import { RecyclableList, Services } from "@/data/MockData";
 import { motion } from "framer-motion";
 import { FaTruck } from "react-icons/fa";
+import { Dimensions } from "@/settings/constants";
 
 const RecyclableItem = ({ category, items }) => {
   return (
@@ -23,31 +24,12 @@ const RecyclableItem = ({ category, items }) => {
   );
 };
 
-const ServiceCard = ({ title, description }) => {
+const ServiceCard = ({ title, description, inMobile }) => {
   const transition = { type: "spring", duration: 1.5 };
-  const [inMobile, setInMobile] = useState(false);
-
-  useEffect(() => {
-    // Check window width only in client-side (browser) environment
-    const handleResize = () => {
-      setInMobile(window.innerWidth <= 768);
-    };
-
-    // Initial check on component mount
-    handleResize();
-
-    // Attach event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <motion.div
-      initial={{ left: inMobile ? "-150px" : "-70rem" }}
+      initial={{ left: inMobile ? "-100px" : "-50rem" }}
       whileInView={{ left: 0 }}
       transition={{ ...transition, type: "tween" }}
       className="services-card flex flex-col relative gap-4 p-8 rounded-lg bg-[--color-primary] shadow-lg"
@@ -58,26 +40,45 @@ const ServiceCard = ({ title, description }) => {
   );
 };
 
-
-
 const ServicesSection = () => {
+  const [inMobile, setInMobile] = useState(false);
+
+  useEffect(() => {
+    // Check window width only in client-side (browser) environment
+    const handleResize = () => {
+      setInMobile(window.innerWidth <= Dimensions.mobileScreen);
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Attach event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [inMobile]);
+
   return (
     <SectionWrapper
       sectionId={Langs["en"].navbarUI.services}
       title={Langs["en"].servicesSectionUI.title}
     >
-      <div className="services-container">
+      <div className="services-container pb-[4rem]">
         <div className="w-full flex flex-col gap-4 items-center">
           {Services.map((service, index) => (
             <ServiceCard
               key={index}
+              inMobile={inMobile}
               title={service.service}
               description={service.description}
             />
           ))}
         </div>
         <div className="w-max flex flex-col justify-center items-center gap-4">
-          <div className="w-max flex flex-col justify-center items-center gap-4 p-2 rounded-md services-items-list shadow-lg">
+          <div className="w-max flex flex-col justify-center items-center gap-4 p-2 rounded-lg services-items-list shadow-lg">
             <span className="text-white font-bold uppercase p-4 w-max">
               {Langs["en"].servicesSectionUI.recyclableList}
             </span>

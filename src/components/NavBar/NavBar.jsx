@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import "./navstyles.css";
-import { NavLinks } from "@/settings/constants";
+import { Dimensions, NavLinks } from "@/settings/constants";
 import { Link } from "react-scroll";
 import { FaBars, FaCross } from "react-icons/fa";
 
@@ -73,7 +73,7 @@ const NavBar = () => {
   useEffect(() => {
     // Check window width only in client-side (browser) environment
     const handleResize = () => {
-      setInMobile(window.innerWidth <= 768);
+      setInMobile(window.innerWidth <= Dimensions.mobileScreen);
     };
 
     // Initial check on component mount

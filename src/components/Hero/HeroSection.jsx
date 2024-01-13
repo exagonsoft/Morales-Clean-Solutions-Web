@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Langs } from "@/langs/langs";
 import NumberCounter from "number-counter";
 import { FaTruck } from "react-icons/fa";
+import { Dimensions } from "@/settings/constants";
 
 const HeroSection = () => {
   const transition = { type: "spring", duration: 3 };
@@ -14,7 +15,7 @@ const HeroSection = () => {
   useEffect(() => {
     // Check window width only in client-side (browser) environment
     const handleResize = () => {
-      setInMobile(window.innerWidth <= 768);
+      setInMobile(window.innerWidth <= Dimensions.mobileScreen);
     };
 
     // Initial check on component mount

@@ -26,6 +26,10 @@ export const Langs = {
     servicesSectionUI:{
         title: 'What we Offer',
         recyclableList: "Recyclable Materials"
+    },
+    pricingSectionUI:{
+        title: 'Outstanding Prices',
+        recyclableList: "Recyclable Materials"
     }
   },
   es: {},
