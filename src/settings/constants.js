@@ -11,7 +11,7 @@ export const NavLinks = [
   },
   {
     text: Langs["en"].navbarUI.about,
-    link: "#About",
+    link: "#About MCS",
   },
   {
     text: Langs["en"].navbarUI.contact,
@@ -27,5 +27,15 @@ export const Dimensions = {
   mobileScreen: 850,
 
 }
+
+export const AboutImages = [
+  "/banner1.png",
+  "/banner2.png",
+  "/banner3.png",
+  "/banner4.png",
+  "/banner5.png",
+  "/banner6.png",
+  "/banner7.png",
+];
 
 

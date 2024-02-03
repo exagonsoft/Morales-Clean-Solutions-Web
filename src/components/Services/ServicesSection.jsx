@@ -29,8 +29,8 @@ const ServiceCard = ({ title, description, inMobile }) => {
 
   return (
     <motion.div
-      initial={{ left: inMobile ? "-100px" : "-50rem" }}
-      whileInView={{ left: 0 }}
+      initial={{ right: inMobile ? "150px" : "220px" }}
+      whileInView={{ right: 0 }}
       transition={{ ...transition, type: "tween" }}
       className="services-card flex flex-col relative gap-4 p-8 rounded-lg bg-[--color-primary] shadow-lg"
     >
@@ -40,33 +40,14 @@ const ServiceCard = ({ title, description, inMobile }) => {
   );
 };
 
-const ServicesSection = () => {
-  const [inMobile, setInMobile] = useState(false);
-
-  useEffect(() => {
-    // Check window width only in client-side (browser) environment
-    const handleResize = () => {
-      setInMobile(window.innerWidth <= Dimensions.mobileScreen);
-    };
-
-    // Initial check on component mount
-    handleResize();
-
-    // Attach event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [inMobile]);
+const ServicesSection = ({inMobile}) => {
 
   return (
     <SectionWrapper
       sectionId={Langs["en"].navbarUI.services}
       title={Langs["en"].servicesSectionUI.title}
     >
-      <div className="services-container pb-[4rem]">
+      <div className="services-container pb-[4rem] sm:pt-[3rem] pt-[1rem]">
         <div className="w-full flex flex-col gap-4 items-center">
           {Services.map((service, index) => (
             <ServiceCard

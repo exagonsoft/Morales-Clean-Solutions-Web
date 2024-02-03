@@ -8,27 +8,9 @@ import NumberCounter from "number-counter";
 import { FaTruck } from "react-icons/fa";
 import { Dimensions } from "@/settings/constants";
 
-const HeroSection = () => {
+const HeroSection = ({inMobile}) => {
   const transition = { type: "spring", duration: 3 };
-  const [inMobile, setInMobile] = useState(false);
-
-  useEffect(() => {
-    // Check window width only in client-side (browser) environment
-    const handleResize = () => {
-      setInMobile(window.innerWidth <= Dimensions.mobileScreen);
-    };
-
-    // Initial check on component mount
-    handleResize();
-
-    // Attach event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  
 
   return (
     <section id="#" className="w-full flex flex-col items-center">

@@ -4,15 +4,17 @@ import React, { useEffect, useState } from "react";
 import "./navstyles.css";
 import { Dimensions, NavLinks } from "@/settings/constants";
 import { Link } from "react-scroll";
-import { FaBars, FaCross } from "react-icons/fa";
+import { FaBars, FaCross, FaWindowClose } from "react-icons/fa";
+import { motion } from "framer-motion";
 
-const NavLink = ({ text, link }) => {
+const NavLink = ({ text, link, toggleMenu }) => {
   return (
     <Link
       to={link}
       spy={true}
       smooth={true}
       className="nav-link cursor-pointer"
+      onClick={toggleMenu}
     >
       <span className="text-white font-bold">{text}</span>
     </Link>
@@ -20,23 +22,35 @@ const NavLink = ({ text, link }) => {
 };
 
 const NavSideBar = ({ toggleMenu }) => {
+  const transition = { type: "spring", duration: 1 };
+
   return (
-    <aside className="fixed right-4 z-30">
+    <div className="fixed right-4 z-30">
       <div className="w-screen fixed h-screen z-20 top-0 left-0 nav-blur"></div>
-      <div className="flex flex-col items-center gap-4 relative z-30 top-8 p-8 bg-green-700 rounded-lg shadow-lg">
+      <motion.div
+        initial={{ top: "-150px" }}
+        whileInView={{ top: "2rem" }}
+        transition={{ ...transition, type: "tween" }}
+        className="flex flex-col items-center gap-4 relative z-30 top-8 p-8 bg-green-700 rounded-lg shadow-lg"
+      >
         <div
           className="text-white p-1 border-solid border rounded-md absolute right-4 top-4"
           onClick={toggleMenu}
         >
-          <FaCross />
+          <FaWindowClose />
         </div>
         <br />
-        <NavLink key={-1} text="Home" link="#" />
+        <NavLink key={-1} text="Home" link="#" toggleMenu={toggleMenu} />
         {NavLinks.map((link, index) => (
-          <NavLink key={index} text={link.text} link={link.link} />
+          <NavLink
+            key={index}
+            text={link.text}
+            link={link.link}
+            toggleMenu={toggleMenu}
+          />
         ))}
-      </div>
-    </aside>
+      </motion.div>
+    </div>
   );
 };
 
@@ -80,11 +94,11 @@ const NavBar = () => {
     handleResize();
 
     // Attach event listener for window resize
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Clean up the event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -117,7 +131,7 @@ const NavBar = () => {
             className="text-white p-1 border-solid border rounded-md"
             onClick={toggleMenu}
           >
-            {menuOpen ? <FaCross /> : <FaBars />}
+            {menuOpen ? <FaWindowClose /> : <FaBars />}
           </div>
         ) : (
           <div className="flex items-center gap-4">

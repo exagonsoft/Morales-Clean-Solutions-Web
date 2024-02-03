@@ -1,0 +1,42 @@
+.carousel-container {
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 32%;
+}
+
+.carousel-item-mobile {
+    flex: 0 0 98%;
+}
+
+.carousel-item img {
+    width: 100%;
+}
+
+.animatedImage1 {
+    animation: fadeInOut 1.5s linear;
+}
+
+.animatedImage2 {
+    animation: fadeInOut 1.5s linear 0.3s;
+}
+
+.animatedImage3 {
+    animation: fadeInOut 1.5s linear 0.6s;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

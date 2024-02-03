@@ -151,7 +151,7 @@ export const Slogans = [
     fraise1: "Plant Trees",
     icon: <FaTree />,
     fraise2: "Reduce Waste",
-    slogan: "Every action counts! Join us in the mission to reduce waste and plant more trees.",
+    slogan: "Every action counts! Join us in the mission to reduce waste and plant trees.",
   },
   {
     fraise1: "Dump Smart",
@@ -171,6 +171,8 @@ export const packagedWastePlan = {
   ],
   lacks: [
     "Collection of blurred waste",
+    "Transportation of blurred waste",
+    "Transportation of hazardous waste",
     "Collection of hazardous waste",
     "Advanced classification",
     "Specialized handling",
@@ -182,12 +184,14 @@ export const blurredWastePlan = {
   includes: [
     "Collection of packaged waste",
     "Collection of blurred waste",
-    "Transportation of packaged and blurred waste",
+    "Transportation of packaged waste",
+    "Transportation of blurred waste",
     "Safe loading and unloading",
     "Advanced classification",
   ],
   lacks: [
     "Collection of hazardous waste",
+    "Transportation of hazardous waste",
     "Specialized handling of blurred waste",
   ],
 };
@@ -198,7 +202,9 @@ export const hazardousWastePlan = {
     "Collection of packaged waste",
     "Collection of blurred waste",
     "Collection of hazardous waste",
-    "Transportation of packaged, blurred, and hazardous waste",
+    "Transportation of packaged waste",
+    "Transportation of blurred waste",
+    "Transportation of hazardous waste",
     "Safe loading and unloading",
     "Specialized classification",
     "Specialized handling of hazardous waste",
