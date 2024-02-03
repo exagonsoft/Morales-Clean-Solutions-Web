@@ -17,18 +17,19 @@
 
 .carousel-item img {
     width: 100%;
+    transition: all ease-in-out .5s;
 }
 
 .animatedImage1 {
-    animation: fadeInOut 1.5s linear;
+    animation: fadeInOut 2s linear;
 }
 
 .animatedImage2 {
-    animation: fadeInOut 1.5s linear 0.3s;
+    animation: fadeInOut 2s linear 0.3s;
 }
 
 .animatedImage3 {
-    animation: fadeInOut 1.5s linear 0.6s;
+    animation: fadeInOut 2s linear 0.6s;
 }
 
 @keyframes fadeInOut {

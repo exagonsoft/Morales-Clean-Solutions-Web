@@ -16,7 +16,7 @@ const Carousel = ({ images, interval = 5000, inMobile }) => {
     }, interval);
     setTimeout(() => {
       removeStyles();
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(intervalId);
   }, [currentIndex, images.length, interval]);

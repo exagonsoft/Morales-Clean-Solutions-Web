@@ -5,7 +5,6 @@ import HeroSection from "@/components/Hero/HeroSection";
 import PricingSection from "@/components/Pricing/PricingSection";
 import ServicesSection from "@/components/Services/ServicesSection";
 import { Dimensions } from "@/settings/constants";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
