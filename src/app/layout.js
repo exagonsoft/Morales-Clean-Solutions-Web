@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="og:image"
-          content="https://metatags.io/images/meta-tags.png"
+          content="https://morales-clean-solutions-web.vercel.app/MSC_SOCIAL_BANNER.png"
         />
 
         <meta property="twitter:card" content="summary_large_image" />
@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="twitter:image"
-          content="https://metatags.io/images/meta-tags.png"
+          content="https://morales-clean-solutions-web.vercel.app/MSC_SOCIAL_BANNER.png"
         />
       </head>
       <body className={`${inter.className}`}>
