@@ -85,6 +85,7 @@ const Carousel = ({ images, interval = 5000, inMobile }) => {
             className={`${inMobile ? "carousel-item-mobile" : "carousel-item"}`}
           >
             <img
+              id={image}
               ref={getRef(`imageRef${index + 1}`)}
               src={image}
               alt={`Slide ${index + 1}`}
