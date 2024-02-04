@@ -29,13 +29,13 @@ export const Dimensions = {
 }
 
 export const AboutImages = [
-  "/banner1.png",
-  "/banner2.png",
-  "/banner3.png",
-  "/banner4.png",
-  "/banner5.png",
-  "/banner6.png",
-  "/banner7.png",
+  "https://morales-clean-solutions-web.vercel.app/banner1.png",
+  "https://morales-clean-solutions-web.vercel.app/banner2.png",
+  "https://morales-clean-solutions-web.vercel.app/banner3.png",
+  "https://morales-clean-solutions-web.vercel.app/banner4.png",
+  "https://morales-clean-solutions-web.vercel.app/banner5.png",
+  "https://morales-clean-solutions-web.vercel.app/banner6.png",
+  "https://morales-clean-solutions-web.vercel.app/banner7.png",
 ];
 
 

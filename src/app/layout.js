@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           name="description"
           content="Experts in cleaning and debris collection in Miami. Efficiency, professionalism and sustainability."
         />
-        <link rel="icon" href="/logo.ico" />
+        <link rel="icon" href="/logoicon.png" />
         <meta name="title" content="Marcos Clean Solutions" />
         <meta
           name="description"
