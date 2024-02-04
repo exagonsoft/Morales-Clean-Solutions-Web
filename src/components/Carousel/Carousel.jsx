@@ -4,8 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./carouselstyles.css";
 import ImageRender from "../Reusable/ImageRender";
 
-const Carousel = ({ images, interval = 5000, inMobile }) => {
-  const [forceRerender, setForceRerender] = useState(false);
+const Carousel = ({ images, interval = 20000, inMobile }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const imageRef1 = useRef();
   const imageRef2 = useRef();
@@ -22,10 +21,6 @@ const Carousel = ({ images, interval = 5000, inMobile }) => {
 
     return () => clearInterval(intervalId);
   }, [currentIndex, images.length, interval]);
-
-  const handleImageChange = () => {
-    setForceRerender((prev) => !prev);
-  };
 
   const applyStyles = () => {
     if (inMobile) {
@@ -91,13 +86,12 @@ const Carousel = ({ images, interval = 5000, inMobile }) => {
             className={`${inMobile ? "carousel-item-mobile" : "carousel-item"}`}
           >
             <img
-              id={image}
-              key={'img' + index + forceRerender}
+              id={'img' + index}
+              key={'img' + index}
               ref={getRef(`imageRef${index + 1}`)}
               src={image}
               alt={`Slide ${index + 1}`}
               className={`rounded-md`}
-              onLoad={handleImageChange}
             />
           </div>
         ))}
