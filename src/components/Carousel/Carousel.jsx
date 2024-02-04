@@ -5,7 +5,7 @@ import "./carouselstyles.css";
 import ImageRender from "../Reusable/ImageRender";
 
 const Carousel = ({ images, interval = 5000, inMobile }) => {
-  const [imageSrc, setImageSrc] = useState('/imageLoader.gif');
+  const [forceRerender, setForceRerender] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const imageRef1 = useRef();
   const imageRef2 = useRef();
@@ -23,11 +23,8 @@ const Carousel = ({ images, interval = 5000, inMobile }) => {
     return () => clearInterval(intervalId);
   }, [currentIndex, images.length, interval]);
 
-  const handleImageLoad = (image) => {
-    console.log(image);
-    if(image){
-        setImageSrc(image);
-    }
+  const handleImageChange = () => {
+    setForceRerender((prev) => !prev);
   };
 
   const applyStyles = () => {
@@ -95,11 +92,12 @@ const Carousel = ({ images, interval = 5000, inMobile }) => {
           >
             <img
               id={image}
-              key={'img' + index}
+              key={'img' + index + forceRerender}
               ref={getRef(`imageRef${index + 1}`)}
               src={image}
               alt={`Slide ${index + 1}`}
               className={`rounded-md`}
+              onLoad={handleImageChange}
             />
           </div>
         ))}
