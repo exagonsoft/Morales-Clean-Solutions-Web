@@ -159,10 +159,15 @@ htmlSupportReservationBookedBody: `
         </div>
         <div
             style="display: flex; flex-direction: column; padding: 1rem; justify-content:space-between; border-radius: 5px; background: rgb(179, 173, 173); box-shadow: 2px 2px 5px; width:fit-content; gap:0.4rem;">
-            <span style="font-weight: bold; text-decoration: underline;">Reservation Details</span>
-            <br />
             <div style="display: flex; flex-direction:column; gap:1rem;">
                 <table>
+                    <tr>
+                        <td>
+                            <span style="font-weight: bold; text-decoration: underline;">Reservation Details</span>
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <div style="display: flex; gap:1rem;">
