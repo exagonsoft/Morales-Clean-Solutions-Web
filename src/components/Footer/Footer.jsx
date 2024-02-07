@@ -61,8 +61,8 @@ const Footer = ({ inMobile }) => {
                 <FooterLink key={index} text={link.text} link={link.link} />
               ))}
             </div>
-            <div className="flex flex-col gap-2 items-center">
-              <div className="mt-4">
+            <div className="flex flex-col gap-2 items-center mt-4 rounded-lg px-4 py-2 border border-solid border-gray-300">
+              <div className="">
                 <span className="">Powered By</span>
               </div>
               <div className="flex gap-8 items-center">
