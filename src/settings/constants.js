@@ -67,7 +67,7 @@ export const EmailData = {
         <p style="font-style: italic;">
             👀 If you feal that the contact is delay you may doit by your own from: <br /><br />
         <div
-            style="display: flex; flex-direction:column; padding: 1rem; justify-content:space-between; border-radius: 5px; background: rgb(179, 173, 173); box-shadow: 2px 2px 5px; width:fit-content; gap:.4rem;">
+            style="display: flex; flex-direction: column; padding: 1rem; justify-content:space-between; border-radius: 5px; background: rgb(179, 173, 173); box-shadow: 2px 2px 5px; width:fit-content; gap:0.4rem;">
             <a href="whatsapp_link" target="_blank"
                 style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                 <img src="whatsapp_icon" alt="Web Icon" style="width: 1rem; height:1rem; border-radius: 50%;">
