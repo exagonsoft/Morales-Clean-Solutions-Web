@@ -34,8 +34,8 @@ export const SystemVariables = {
   twitterLink: 'https://twitter.com/exagonsoft',
   facebookLink: '',
   linkedInLink: '',
-  supportMobile: '+5356839233',
-  supportPhone: '+5377458569'
+  supportMobile: '+17864884827',
+  supportPhone: '+17864884827'
 }
 
 export const Dimensions = {
@@ -56,7 +56,7 @@ export const EmailData = {
   secretKey: "cdhc clgw mjsl upea",
   supportMail: "marcoscleansolutions@gmail.com",
   noReplay: "noreply@msc.com",
-  supportMailReceiver: "amartinperaza@gmail.com",
+  supportMailReceiver: "jimmorales485@gmail.com",
   htmlUserReservationBookedBody: `
   <div style="display:inline-grid; padding:1rem; width: 80%; overflow: hidden; overflow-y: auto;">
         <p>👋 Hello estimated user_name:</p>
