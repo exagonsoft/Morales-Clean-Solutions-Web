@@ -56,7 +56,7 @@ const Footer = ({ inMobile }) => {
                 <Estimator />
               </div>
             </div>
-            <div className="sm:flex grid grid-cols-3 text-center w-full sm:gap-8 gap-2">
+            <div className="sm:flex grid grid-cols-3 text-center justify-center items-center w-full sm:gap-8 gap-2">
               {NavLinks.map((link, index) => (
                 <FooterLink key={index} text={link.text} link={link.link} />
               ))}
