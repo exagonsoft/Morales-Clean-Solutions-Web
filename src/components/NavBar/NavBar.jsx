@@ -54,13 +54,18 @@ const NavSideBar = ({ toggleMenu }) => {
   );
 };
 
-const NavBar = () => {
+const NavBar = ({freezeScreen, unFreezeScreen}) => {
   const [atHome, setAtHome] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [inMobile, setInMobile] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen((prevState) => !menuOpen);
+    if(!menuOpen){
+      freezeScreen();
+    }else{
+      unFreezeScreen();
+    }
   };
 
   useEffect(() => {

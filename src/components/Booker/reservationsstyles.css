@@ -1,0 +1,21 @@
+.animatedEntrance {
+    animation: fadeInOut .5s linear;
+}
+
+.selected-date {
+    background-color: #b95e34;
+    /* Customize the background color */
+    color: #fff;
+    /* Customize the text color */
+    border-radius: 50%;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

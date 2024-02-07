@@ -40,7 +40,7 @@ const ServiceCard = ({ title, description, inMobile }) => {
   );
 };
 
-const ServicesSection = ({inMobile}) => {
+const ServicesSection = ({inMobile, showBookerHandler}) => {
 
   return (
     <SectionWrapper
@@ -74,7 +74,7 @@ const ServicesSection = ({inMobile}) => {
             </div>
           </div>
           <div className="hero-buttons w-full">
-            <button className="button !w-full">
+            <button className="button !w-full" onClick={showBookerHandler}>
               <span className="text-2xl">
                 <FaTruck />
               </span>

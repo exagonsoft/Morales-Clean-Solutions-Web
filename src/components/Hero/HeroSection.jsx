@@ -8,7 +8,7 @@ import NumberCounter from "number-counter";
 import { FaTruck } from "react-icons/fa";
 import { Dimensions } from "@/settings/constants";
 
-const HeroSection = ({inMobile}) => {
+const HeroSection = ({inMobile, showBookerHandler}) => {
   const transition = { type: "spring", duration: 3 };
   
 
@@ -76,7 +76,7 @@ const HeroSection = ({inMobile}) => {
             </div>
           </div>
           <div className="hero-buttons w-full">
-            <button className="button">
+            <button className="button" onClick={showBookerHandler}>
               <span className="text-2xl"><FaTruck /></span>
               {Langs["en"].globalUI.bookOnline}
             </button>

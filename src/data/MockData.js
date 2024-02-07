@@ -162,7 +162,7 @@ export const Slogans = [
 ];
 
 export const packagedWastePlan = {
-  name: "Basic Plan",
+  name: "Basic Service",
   includes: [
     "Collection of packaged waste",
     "Transportation of packaged waste",
@@ -180,7 +180,7 @@ export const packagedWastePlan = {
 };
 
 export const blurredWastePlan = {
-  name: "Premium Plan",
+  name: "Premium Service",
   includes: [
     "Collection of packaged waste",
     "Collection of blurred waste",
@@ -197,7 +197,7 @@ export const blurredWastePlan = {
 };
 
 export const hazardousWastePlan = {
-  name: "Complete Plan",
+  name: "Complete Service",
   includes: [
     "Collection of packaged waste",
     "Collection of blurred waste",
