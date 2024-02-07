@@ -1,0 +1,7 @@
+.social-links{
+    width: fit-content;
+}
+
+.social-links > a {
+    font-size: 2rem;
+}

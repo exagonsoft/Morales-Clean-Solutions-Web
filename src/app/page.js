@@ -2,6 +2,7 @@
 
 import AboutSection from "@/components/About/AboutSection";
 import ReservationBooker from "@/components/Booker/ReservationBooker";
+import Footer from "@/components/Footer/Footer";
 import HeroSection from "@/components/Hero/HeroSection";
 import NavBar from "@/components/NavBar/NavBar";
 import PricingSection from "@/components/Pricing/PricingSection";
@@ -57,6 +58,7 @@ export default function Home() {
       <ServicesSection inMobile={inMobile} showBookerHandler={showBookerHandler}/>
       <PricingSection showBookerHandler={showBookerHandler}/>
       <AboutSection inMobile={inMobile} />
+      <Footer />
     </main>
   );
 }

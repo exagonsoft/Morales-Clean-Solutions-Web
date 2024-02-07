@@ -12,7 +12,8 @@ export const Langs = {
       thursday: "Thu",
       friday: "Fri",
       saturday: "Sat",
-      reservationBooked: "Reservation Booked"
+      reservationBooked: "Reservation Booked",
+      footerSlogan: "We work every days to build a better, cleaner and green WORLD. Join us to save the PLANET."
     },
     navbarUI: {
       services: "Services",
@@ -74,6 +75,9 @@ export const Langs = {
       ourStoryParagraph7:
         "Today, Morales Clean Solutions stands as a testament to the power of collective action and environmental consciousness. Our story is a dynamic narrative of growth, resilience, and a steadfast commitment to building a sustainable future. As we look ahead, our story continues to unfold, driven by the belief that every positive change, no matter how small, contributes to a healthier, more vibrant planet.",
     },
+    footerSection: {
+      
+    }
   },
   es: {},
 };

@@ -32,6 +32,8 @@ export const SystemVariables = {
   mobileIcon: `/mobile.png`,
   whatsappLink: 'https://wa.me/+5356839233',
   twitterLink: 'https://twitter.com/exagonsoft',
+  facebookLink: '',
+  linkedInLink: '',
   supportMobile: '+5356839233',
   supportPhone: '+5377458569'
 }
