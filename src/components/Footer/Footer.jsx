@@ -25,7 +25,7 @@ const Footer = ({ inMobile }) => {
         <div className="w-full flex justify-center items-center px-4 py-12 bg-[--color-secondary] text-white">
           <div className="w-full flex flex-col gap-4 justify-center items-center">
             <div className="flex sm:flex-row flex-col w-full justify-between items-center py4 sm:gap-0 gap-6">
-              <div className="w-full flex items-center sm:justify-start justify-center sm:mb-[-6rem] mb-0">
+              <div className="w-full flex items-center sm:justify-start justify-center sm:mb-[-8rem] mb-0">
                 <FooterLink
                   link="#"
                   text={
@@ -38,7 +38,7 @@ const Footer = ({ inMobile }) => {
                   className=""
                 ></FooterLink>
               </div>
-              <div className="w-full flex gap-8 social-links">
+              <div className="w-full flex justify-center items-center gap-8 social-links">
                 <a href={SystemVariables.facebookLink} target="blank">
                   <SiFacebook />
                 </a>
@@ -52,7 +52,7 @@ const Footer = ({ inMobile }) => {
                   <SiLinkedin />
                 </a>
               </div>
-              <div className="w-full flex items-center sm:justify-end justify-center sm:mb-[-6rem] mb-0">
+              <div className="w-full flex items-center sm:justify-end justify-center sm:mb-[-8rem] mb-0">
                 <Estimator />
               </div>
             </div>
