@@ -7,6 +7,7 @@ import HeroSection from "@/components/Hero/HeroSection";
 import NavBar from "@/components/NavBar/NavBar";
 import PricingSection from "@/components/Pricing/PricingSection";
 import ServicesSection from "@/components/Services/ServicesSection";
+import { ToastNotification } from "@/handlers/notificationsHandler";
 import { Dimensions } from "@/settings/constants";
 import { useEffect, useState } from "react";
 
@@ -52,6 +53,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen overflow-hidden flex-col items-center">
+      <ToastNotification />
       {showBooker ? <ReservationBooker hideBookerHandler={hideBookerHandler}/> : <></>}
       <NavBar freezeScreen={freezeScreen} unFreezeScreen={unFreezeScreen}/>
       <HeroSection inMobile={inMobile} showBookerHandler={showBookerHandler}/>

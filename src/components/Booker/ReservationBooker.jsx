@@ -10,8 +10,9 @@ import {
   listReservations,
 } from "@/handlers/reservationHandler";
 import { sendMailHandler } from "@/handlers/mailHandler";
-import { EmailData, SystemVariables } from "@/settings/constants";
+import { EmailData, SystemVariables, notificationType } from "@/settings/constants";
 import { getMonthNames } from "@/utils/utilfuntions";
+import { notify } from "@/handlers/notificationsHandler";
 
 const ReservationBooker = ({ hideBookerHandler }) => {
   const [reservationData, setReservationData] = useState(reservationModel);
@@ -92,10 +93,12 @@ const ReservationBooker = ({ hideBookerHandler }) => {
         await sendSupportMail();
         hideBookerHandler();
         setIsLoading((prevData) => false);
+        notify(Langs['en'].successUI.createReservation, notificationType.success);
       }
     } catch (error) {
       console.log("⛔", error);
       setIsLoading((prevData) => false);
+      notify(Langs['en'].errorsUI.createReservation, notificationType.error);
     }
   };
 
@@ -116,6 +119,7 @@ const ReservationBooker = ({ hideBookerHandler }) => {
     } catch (error) {
       console.log("", error);
       setIsLoading((prevData) => false);
+      notify(Langs['en'].errorsUI.getReservations, notificationType.error);
     }
   };
 

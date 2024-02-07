@@ -23,6 +23,13 @@ export const NavLinks = [
   },
 ];
 
+export const notificationType = {
+    success: "SUCCESS",
+    warning: "WARNING",
+    error: "ERROR",
+    info: "INFO",
+  };
+
 export const SystemVariables = {
   siteUrl: "https://morales-clean-solutions-web.vercel.app",
   whatsappIcon: `/whatsapp.png`,

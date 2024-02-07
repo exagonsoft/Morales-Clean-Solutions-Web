@@ -15,6 +15,13 @@ export const Langs = {
       reservationBooked: "Reservation Booked",
       footerSlogan: "We work every days to build a better, cleaner and green WORLD. Join us to save the PLANET."
     },
+    successUI: {
+      createReservation: "Reservation booked successfully"
+    },
+    errorsUI: {
+      getReservations: "Error getting reservations list",
+      createReservation: "Error booking the reservation"
+    },
     navbarUI: {
       services: "Services",
       pricing: "Pricing",

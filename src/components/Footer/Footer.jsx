@@ -66,16 +66,26 @@ const Footer = ({ inMobile }) => {
                 <span className="">Powered By</span>
               </div>
               <div className="flex gap-8 items-center">
-                <img
-                  src="/exagonsoftlogo.png"
-                  alt="EXAGON-SOFT"
-                  className="w-[120px] h-[40px]"
-                />
-                <img
-                  src="/nextlogo.png"
-                  alt="NEXT JS"
-                  className="w-[120px] h-[40px]"
-                />
+                <a
+                  href="https://main.d401teswsrn9u.amplifyapp.com"
+                  target="blank"
+                >
+                  <img
+                    src="/exagonsoftlogo.png"
+                    alt="EXAGON-SOFT"
+                    className="w-[120px] h-[40px]"
+                  />
+                </a>
+                <a
+                  href="https://nextjs.org"
+                  target="blank"
+                >
+                  <img
+                    src="/nextlogo.png"
+                    alt="NEXT JS"
+                    className="w-[120px] h-[40px]"
+                  />
+                </a>
               </div>
             </div>
           </div>
