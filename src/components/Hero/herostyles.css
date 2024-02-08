@@ -177,6 +177,26 @@
     .hero-buttons {
         justify-content: center;
     }
-
-
 }
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: starAnimation 5s infinite;
+  }
+
+  @keyframes starAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

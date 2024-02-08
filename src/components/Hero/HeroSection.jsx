@@ -8,9 +8,8 @@ import NumberCounter from "number-counter";
 import { FaTruck } from "react-icons/fa";
 import { Dimensions } from "@/settings/constants";
 
-const HeroSection = ({inMobile, showBookerHandler}) => {
+const HeroSection = ({ inMobile, showBookerHandler }) => {
   const transition = { type: "spring", duration: 3 };
-  
 
   return (
     <section id="#" className="w-full flex flex-col items-center">
@@ -77,12 +76,25 @@ const HeroSection = ({inMobile, showBookerHandler}) => {
           </div>
           <div className="hero-buttons w-full">
             <button className="button" onClick={showBookerHandler}>
-              <span className="text-2xl"><FaTruck /></span>
+              <span className="text-2xl">
+                <FaTruck />
+              </span>
               {Langs["en"].globalUI.bookOnline}
             </button>
           </div>
         </div>
-        <div className="flex flex-col best-hauler-image">
+        <div className="relative flex flex-col best-hauler-image">
+          <div class="star" style={{top:"10%", left: "20%"}}></div>
+          <div class="star" style={{top:"20%", left: "50%"}}></div>
+          <div class="star" style={{top:"30%", left: "80%"}}></div>
+          <motion.img
+            transition={{ type: "spring", duration: 2 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            src="/citycloud.webp"
+            alt=""
+            className="sm:!w-[115%] !w-full sm:!h-[80%] !h-full !max-w-[115%] sm:!right-[-7rem] right-0 sm:top-[3rem] top-0 hero-image-back !absolute "
+          />
           <motion.img
             transition={transition}
             initial={{ left: "30%", opacity: 0 }}
@@ -93,7 +105,6 @@ const HeroSection = ({inMobile, showBookerHandler}) => {
           />
         </div>
       </div>
-      
     </section>
   );
 };
