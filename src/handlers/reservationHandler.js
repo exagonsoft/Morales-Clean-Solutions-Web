@@ -4,6 +4,7 @@ export const createReservation = async (reservation) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reservation),
+      cache: 'no-store'
     });
   
     if (res.ok) {
@@ -20,6 +21,7 @@ export const listReservations = async (reservation) => {
   const res = await fetch("/api/reservations", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
+    cache: 'no-store'
   });
 
   if (res.ok) {
