@@ -12,7 +12,7 @@ import { Dimensions } from "@/settings/constants";
 const RecyclableItem = ({ category, items }) => {
   return (
     <div className="w-full flex justify-start flex-col">
-      <span className="uppercase font-bold">{category}</span>
+      <span className="uppercase font-bold text-white">{category}</span>
       <ul className="mx-8 list-disc">
         {items.map((item, index) => (
           <li key={index} className="text-white">
@@ -34,7 +34,7 @@ const ServiceCard = ({ title, description, inMobile }) => {
       transition={{ ...transition, type: "tween" }}
       className="services-card flex flex-col relative gap-4 p-8 rounded-lg bg-[--color-primary] shadow-lg"
     >
-      <span className="text-white uppercase font-bold">{title}</span>
+      <span className="text-[var(--color-primary-comments)] uppercase font-bold">{title}</span>
       <p className="text-[var(--color-primary-comments)]">{description}</p>
     </motion.div>
   );

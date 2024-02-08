@@ -19,14 +19,14 @@ const PlanCard = ({ title, lacking, included, showBookerHandler }) => {
         <div className="">
           {lacking?.map((lack, index) => (
             <div key={index} className="">
-              ⛔<span className="text-sm">{lack}</span>
+              ⛔<span className="text-sm text-white">{lack}</span>
             </div>
           ))}
         </div>
         <div className="">
           {included?.map((include, index) => (
             <div key={index} className="">
-              ✅<span className="text-sm">{include}</span>
+              ✅<span className="text-sm text-white">{include}</span>
             </div>
           ))}
         </div>

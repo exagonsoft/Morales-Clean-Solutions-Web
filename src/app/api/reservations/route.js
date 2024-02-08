@@ -7,7 +7,7 @@ export const GET = async (req) => {
   try {
     await connectToDB();
 
-    const reservations = await Reservation.find({});
+    const reservations = await Reservation.find({}).limit(null);
 
     return NextResponse.json(JSON.stringify(reservations), { status: 200 });
   } catch (error) {

@@ -30,7 +30,7 @@ const Footer = ({ inMobile }) => {
                   link="#"
                   text={
                     <img
-                      src="/logo.png"
+                      src="/logo.webp"
                       alt="MCS"
                       className="w-[100px] h-[100px] rounded-full self-center"
                     />
@@ -39,16 +39,16 @@ const Footer = ({ inMobile }) => {
                 ></FooterLink>
               </div>
               <div className="w-full flex justify-center items-center gap-8 social-links">
-                <a href={SystemVariables.facebookLink} target="blank">
+                <a href={SystemVariables.facebookLink} aria-label="Follow us in Facebook" target="blank">
                   <SiFacebook />
                 </a>
-                <a href={SystemVariables.twitterLink} target="blank">
+                <a href={SystemVariables.twitterLink} aria-label="Follow us in Twitter" target="blank">
                   <SiTwitter />
                 </a>
-                <a href={SystemVariables.whatsappLink} target="blank">
+                <a href={SystemVariables.whatsappLink} aria-label="Contact us over WhatsApp" target="blank">
                   <SiWhatsapp />
                 </a>
-                <a href={SystemVariables.linkedInLink} target="blank">
+                <a href={SystemVariables.linkedInLink} aria-label="Find us in LinkedIn" target="blank">
                   <SiLinkedin />
                 </a>
               </div>
@@ -71,7 +71,7 @@ const Footer = ({ inMobile }) => {
                   target="blank"
                 >
                   <img
-                    src="/exagonsoftlogo.png"
+                    src="/exagonsoftlogo.webp"
                     alt="EXAGON-SOFT"
                     className="w-[120px] h-[40px]"
                   />
@@ -81,7 +81,7 @@ const Footer = ({ inMobile }) => {
                   target="blank"
                 >
                   <img
-                    src="/nextlogo.png"
+                    src="/nextlogo.webp"
                     alt="NEXT JS"
                     className="w-[120px] h-[40px]"
                   />
@@ -90,7 +90,7 @@ const Footer = ({ inMobile }) => {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-2 justify-center items-center p-4 bg-[--color-primary] text-white">
+        <div className="w-full flex flex-col gap-2 justify-center items-center p-4 bg-[--color-primary]">
           <div className="w-full flex justify-center items-center">
             <span className=" text-center">
               {Langs["en"].globalUI.footerSlogan}

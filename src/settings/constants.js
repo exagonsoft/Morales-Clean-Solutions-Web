@@ -37,10 +37,10 @@ export const SystemVariables = {
   siteIcon: `/web.png`,
   phoneIcon: `/phone.png`,
   mobileIcon: `/mobile.png`,
-  whatsappLink: 'https://wa.me/+5356839233',
+  whatsappLink: 'https://wa.me/+17864884827',
   twitterLink: 'https://twitter.com/exagonsoft',
-  facebookLink: '',
-  linkedInLink: '',
+  facebookLink: 'https://m.me/jimmorales485',
+  linkedInLink: 'https://linkedin/com/jimmorales485',
   supportMobile: '+17864884827',
   supportPhone: '+17864884827'
 }
@@ -50,13 +50,13 @@ export const Dimensions = {
 };
 
 export const AboutImages = [
-  "/banner1.png",
-  "/banner2.png",
-  "/banner3.png",
-  "/banner4.png",
-  "/banner5.png",
-  "/banner6.png",
-  "/banner7.png",
+  "/banner1.webp",
+  "/banner2.webp",
+  "/banner3.webp",
+  "/banner4.webp",
+  "/banner5.webp",
+  "/banner6.webp",
+  "/banner7.webp",
 ];
 
 export const EmailData = {
@@ -155,7 +155,7 @@ export const EmailData = {
             </p>
         </div>
         <div>
-            <img src="https://morales-clean-solutions-web.vercel.app/logo.png" alt="MCS"
+            <img src="https://morales-clean-solutions-web.vercel.app/logo.webp" alt="MCS"
                 style="width: 100px; height: 100px; border-radius: 50%" />
         </div>
     </div>
@@ -230,7 +230,7 @@ htmlSupportReservationBookedBody: `
             </p>
         </div>
         <div>
-            <img src="https://morales-clean-solutions-web.vercel.app/logo.png" alt="MCS"
+            <img src="https://morales-clean-solutions-web.vercel.app/logo.webp" alt="MCS"
                 style="width: 100px; height: 100px; border-radius: 50%" />
         </div>
     </div>

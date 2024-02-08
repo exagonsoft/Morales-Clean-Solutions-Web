@@ -109,10 +109,8 @@ const ReservationBooker = ({ hideBookerHandler }) => {
         let _reservations = await _reservationsPromise.json();
         let _objectArray = JSON.parse(_reservations);
 
-        let _unavailableDates = [];
-        _objectArray.forEach((_reservation) => {
-          _unavailableDates.push(_reservation.date);
-        });
+        const _unavailableDates = _objectArray.map(_reservation => _reservation.date);
+        setUnavailableDates(_unavailableDates);
         setUnavailableDates((prevData) => _unavailableDates);
         setIsLoading((prevData) => false);
       }
@@ -126,7 +124,6 @@ const ReservationBooker = ({ hideBookerHandler }) => {
   useEffect(() => {
     setIsLoading((prevData) => true);
     loadReservations();
-    
   }, []);
 
   return (

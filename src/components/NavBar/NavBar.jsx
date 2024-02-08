@@ -128,7 +128,7 @@ const NavBar = ({freezeScreen, unFreezeScreen}) => {
           smooth={true}
           className="flex justify-center items-center gap-2 cursor-pointer"
         >
-          <img src="/logo.png" alt="MCS" className="w-[4rem] rounded-full" />{" "}
+          <img src="/logo.webp" alt="MCS" className="w-[4rem] rounded-full" />{" "}
           <span className="text-white font-extrabold">MCS</span>
         </Link>
         {inMobile ? (

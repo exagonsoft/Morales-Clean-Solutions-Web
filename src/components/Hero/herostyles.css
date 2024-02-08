@@ -95,7 +95,6 @@
 }
 
 .hero-buttons> :nth-child(1) {
-    color: white;
     background-color: var(--color-primary);
     gap: 1rem;
     width: fit-content;

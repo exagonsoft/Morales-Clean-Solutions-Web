@@ -87,7 +87,7 @@ const HeroSection = ({inMobile, showBookerHandler}) => {
             transition={transition}
             initial={{ left: "30%", opacity: 0 }}
             whileInView={{ left: 0, opacity: 1 }}
-            src="/herotruck.png"
+            src="/herotruck.webp"
             alt=""
             className="w-[80%] hero-image-back"
           />
