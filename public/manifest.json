@@ -8,23 +8,23 @@
     "background_color": "#ffffff",
     "icons": [
         {
-            "src": "/logoicon.png",
+            "src": "/logoicon.webp",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "/logo-512.png",
+            "src": "/logo-512.webp",
             "sizes": "512x512",
             "type": "image/png"
         },
         {
-            "src": "/logo-maskble-256.png",
+            "src": "/logo-maskble-256.webp",
             "sizes": "256x256",
             "type": "image/png",
             "purpose": "maskable"
           },
           {
-            "src": "/logo-maskble-256.png",
+            "src": "/logo-maskble-512.webp",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"

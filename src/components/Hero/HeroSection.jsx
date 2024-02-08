@@ -10,6 +10,7 @@ import { Dimensions } from "@/settings/constants";
 
 const HeroSection = ({ inMobile, showBookerHandler }) => {
   const transition = { type: "spring", duration: 3 };
+  const backgroundTransition = { type: "spring", duration: 1.5 };
 
   return (
     <section id="#" className="w-full flex flex-col items-center">
@@ -83,26 +84,25 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
             </button>
           </div>
         </div>
-        <div className="relative flex flex-col best-hauler-image">
-          <div className="star" style={{top:"10%", left: "20%"}}></div>
-          <div className="star" style={{top:"20%", left: "50%"}}></div>
-          <div className="star" style={{top:"30%", left: "80%"}}></div>
-          <motion.img
-            transition={{ type: "spring", duration: 2 }}
+        <div className="relative flex flex-col best-hauler-image-container">
+          <div className="star" style={{ top: "10%", left: "20%" }}></div>
+          <div className="star" style={{ top: "20%", left: "50%" }}></div>
+          <div className="star" style={{ top: "30%", left: "80%" }}></div>
+          <motion.div
+            transition={backgroundTransition}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            src="/citycloud.webp"
-            alt=""
-            className="sm:!w-[115%] !w-full sm:!h-[80%] !h-full !max-w-[115%] sm:!right-[-7rem] right-0 sm:top-[3rem] top-0 hero-image-back !absolute blur-[1.5px]"
-          />
-          <motion.img
+            className="absolute w-full h-[90%] best-hauler-image"
+          >
+          </motion.div>
+          <motion.div
             transition={transition}
             initial={{ left: "30%", opacity: 0 }}
             whileInView={{ left: 0, opacity: 1 }}
-            src="/herotruck.webp"
-            alt=""
-            className="w-[80%] hero-image-back"
-          />
+            className="relative flex w-[95%] h-full justify-center items-center py-8"
+          >
+            <img src="/herotruck.webp" alt="" className="hero-image-back" />
+          </motion.div>
         </div>
       </div>
     </section>

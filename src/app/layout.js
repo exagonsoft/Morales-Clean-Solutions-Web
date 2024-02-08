@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           name="description"
           content="Experts in cleaning and debris collection in Miami. Efficiency, professionalism and sustainability."
         />
-        <link rel="icon" href="/logoicon.png" />
+        <link rel="icon" href="/logoicon.webp" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="title" content="Marcos Clean Solutions" />
         <meta name="theme-color" content="#56bd56" />
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="og:image"
-          content="https://morales-clean-solutions-web.vercel.app/MSC_SOCIAL_BANNER.png"
+          content="https://morales-clean-solutions-web.vercel.app/MSC_SOCIAL_BANNER.webp"
         />
 
         <meta property="twitter:card" content="summary_large_image" />
@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="twitter:image"
-          content="https://morales-clean-solutions-web.vercel.app/MSC_SOCIAL_BANNER.png"
+          content="https://morales-clean-solutions-web.vercel.app/MSC_SOCIAL_BANNER.webp"
         />
       </head>
       <body className={`${inter.className}`}>
