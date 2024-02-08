@@ -10,7 +10,11 @@ import {
   listReservations,
 } from "@/handlers/reservationHandler";
 import { sendMailHandler } from "@/handlers/mailHandler";
-import { EmailData, SystemVariables, notificationType } from "@/settings/constants";
+import {
+  EmailData,
+  SystemVariables,
+  notificationType,
+} from "@/settings/constants";
 import { getMonthNames } from "@/utils/utilfuntions";
 import { notify } from "@/handlers/notificationsHandler";
 
@@ -37,16 +41,34 @@ const ReservationBooker = ({ hideBookerHandler }) => {
     _message = _message.replace("reservation_date", _reservationDateString);
     _message = _message.replace("_year", `2002-${new Date().getFullYear()}`);
 
-    _message = _message.replace("whatsapp_icon", SystemVariables.siteUrl + SystemVariables.whatsappIcon);
+    _message = _message.replace(
+      "whatsapp_icon",
+      SystemVariables.siteUrl + SystemVariables.whatsappIcon
+    );
     _message = _message.replace("whatsapp_link", SystemVariables.whatsappLink);
     _message = _message.replace("twitter_link", SystemVariables.twitterLink);
-    _message = _message.replace("twitter_icon", SystemVariables.siteUrl + SystemVariables.twitterIcon);
-    _message = _message.replace("mobile_icon", SystemVariables.siteUrl + SystemVariables.mobileIcon);
-    _message = _message.replace("support_mobile", SystemVariables.supportMobile);
-    _message = _message.replace("phone_icon", SystemVariables.siteUrl + SystemVariables.phoneIcon);
+    _message = _message.replace(
+      "twitter_icon",
+      SystemVariables.siteUrl + SystemVariables.twitterIcon
+    );
+    _message = _message.replace(
+      "mobile_icon",
+      SystemVariables.siteUrl + SystemVariables.mobileIcon
+    );
+    _message = _message.replace(
+      "support_mobile",
+      SystemVariables.supportMobile
+    );
+    _message = _message.replace(
+      "phone_icon",
+      SystemVariables.siteUrl + SystemVariables.phoneIcon
+    );
     _message = _message.replace("support_phone", SystemVariables.supportPhone);
     _message = _message.replace("mcs_website", SystemVariables.siteUrl);
-    _message = _message.replace("web_icon", SystemVariables.siteUrl + SystemVariables.siteIcon);
+    _message = _message.replace(
+      "web_icon",
+      SystemVariables.siteUrl + SystemVariables.siteIcon
+    );
 
     const mailData = {
       receiver: reservationData.userEmail,
@@ -70,10 +92,13 @@ const ReservationBooker = ({ hideBookerHandler }) => {
     );
     _message = _message.replace("user_email", reservationData.userEmail);
     _message = _message.replace("user_mobile", reservationData.userMobile);
-    _message = _message.replace("user_address", reservationData.userAddress ? reservationData.userAddress : '--');
+    _message = _message.replace(
+      "user_address",
+      reservationData.userAddress ? reservationData.userAddress : "--"
+    );
     _message = _message.replace("reservation_date", _reservationDateString);
     _message = _message.replace("_year", `2002-${new Date().getFullYear()}`);
-    
+
     const mailData = {
       receiver: EmailData.supportMailReceiver,
       remittent: EmailData.noReplay,
@@ -88,17 +113,21 @@ const ReservationBooker = ({ hideBookerHandler }) => {
     try {
       setIsLoading((prevData) => true);
       const _result = await createReservation(reservationData);
+
       if (_result) {
         await sendUserMail();
         await sendSupportMail();
         hideBookerHandler();
         setIsLoading((prevData) => false);
-        notify(Langs['en'].successUI.createReservation, notificationType.success);
+        notify(
+          Langs["en"].successUI.createReservation,
+          notificationType.success
+        );
       }
     } catch (error) {
       console.log("⛔", error);
       setIsLoading((prevData) => false);
-      notify(Langs['en'].errorsUI.createReservation, notificationType.error);
+      notify(Langs["en"].errorsUI.createReservation, notificationType.error);
     }
   };
 
@@ -109,7 +138,9 @@ const ReservationBooker = ({ hideBookerHandler }) => {
         let _reservations = await _reservationsPromise.json();
         let _objectArray = JSON.parse(_reservations);
 
-        const _unavailableDates = _objectArray.map(_reservation => _reservation.date);
+        const _unavailableDates = _objectArray.map(
+          (_reservation) => _reservation.date
+        );
         setUnavailableDates(_unavailableDates);
         setUnavailableDates((prevData) => _unavailableDates);
         setIsLoading((prevData) => false);
@@ -117,7 +148,7 @@ const ReservationBooker = ({ hideBookerHandler }) => {
     } catch (error) {
       console.log("", error);
       setIsLoading((prevData) => false);
-      notify(Langs['en'].errorsUI.getReservations, notificationType.error);
+      notify(Langs["en"].errorsUI.getReservations, notificationType.error);
     }
   };
 
@@ -130,7 +161,23 @@ const ReservationBooker = ({ hideBookerHandler }) => {
     <div className="w-full flex fixed h-screen justify-center items-center z-50 ">
       <div className="w-full h-screen z-[45] glassmorphism"></div>
       <div className="w-full sm:py-0 py-4 h-screen z-[48] absolute top-0 left-0 flex justify-center items-baseline sm:items-center overflow-hidden overflow-y-auto">
-        <div className="flex flex-col px-8 py-4 rounded-lg shadow-xl bg-[--color-secondary] border-t-[--color-primary] border-t-[.5rem] sm:w-[60%] w-[94%] animatedEntrance">
+        <div className="relative flex flex-col px-8 py-4 rounded-lg shadow-xl bg-[--color-secondary] border-t-[--color-primary] border-t-[.5rem] sm:w-[60%] w-[94%] animatedEntrance">
+          {loading ? (
+            <div className="absolute inset-0 z-[10]  !rounded-md">
+              <div className="w-full h-full absolute inset-0 z-[5] glassmorphism"></div>
+              <div className="relative w-full h-full z-[8] flex justify-center items-center">
+                <span className="">
+                  <img
+                    src="/loading-54.gif"
+                    alt="LOADING..."
+                    className="w-[8rem] h-[8rem] rounded-full"
+                  />
+                </span>
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
           <div className="w-full flex flex-col justify-center items-center gap-8 sm:my-0 my-8">
             <h1 className="text-white font-bold uppercase sm:text-[1.5rem] text-[1rem] text-center">
               Book your reservation Online
@@ -150,7 +197,6 @@ const ReservationBooker = ({ hideBookerHandler }) => {
                       calendarStyles="w-full bg-white rounded-md shadow-lg h-full"
                       onSelectionChange={updateReservationData}
                       marketDates={unavailableDates}
-                      loading={loading}
                     />
                   </div>
                   <div className="w-full flex justify-start  flex-col gap-4 p-2">

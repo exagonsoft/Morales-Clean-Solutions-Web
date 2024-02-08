@@ -1,7 +1,8 @@
 "use client";
 
+import dynamic  from "next/dynamic";
 import AboutSection from "@/components/About/AboutSection";
-import ReservationBooker from "@/components/Booker/ReservationBooker";
+const ReservationBooker = dynamic(() => import('@/components/Booker/ReservationBooker'));
 import Footer from "@/components/Footer/Footer";
 import HeroSection from "@/components/Hero/HeroSection";
 import NavBar from "@/components/NavBar/NavBar";

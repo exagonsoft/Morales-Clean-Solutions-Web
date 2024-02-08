@@ -197,7 +197,6 @@ const Calendar = ({
   selectedDatesStyles,
   marketDates,
   onSelectionChange,
-  loading
 }) => {
   const sundays = useRef();
   const mondays = useRef();
@@ -219,7 +218,6 @@ const Calendar = ({
   const [daysInMonth, setDaysInMonth] = useState([]);
   const [showMonthSelector, setShowMonthSelector] = useState(false);
   const [showYearSelector, setShowYearSelector] = useState(false);
-  
 
   const handleNextMonthClick = () => {
     setSelectedDate((prevDate) => {
@@ -327,7 +325,6 @@ const Calendar = ({
     });
     onSelectionChange(selectedDate, "date");
     fillCalendar();
-    
   }, [daysInMonth.length, selectedDate, marketDates]);
 
   return (
@@ -335,14 +332,6 @@ const Calendar = ({
       id={id}
       className={`flex relative flex-col px-4 py-2 gap-4 ${calendarStyles}`}
     >
-      {loading ?  (
-        <div className="absolute inset-0 z-[10]  !rounded-md">
-          <div className="w-full h-full absolute inset-0 z-[5] glassmorphism"></div>
-          <div className="relative w-full h-full z-[8] flex justify-center items-center">
-            <span className=""><img src="/loading-54.gif" alt="LOADING..." className="w-[8rem] h-[8rem] rounded-full" /></span>
-          </div>
-        </div>
-      ) : <></>}
       <div
         id="calendarHeader"
         className="w-full flex gap-4 mt-2 justify-center items-center"
