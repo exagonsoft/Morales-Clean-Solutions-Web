@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/logoicon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="title" content="Marcos Clean Solutions" />
-        <meta name="theme-color" content="#ff0000" />
+        <meta name="theme-color" content="#56bd56" />
         <meta
           name="description"
           content="Experts in cleaning and debris collection in Miami. Efficiency, professionalism and sustainability."
