@@ -1,0 +1,16 @@
+{
+    "name": "Marcos Clean Solutions",
+    "short_name": "MCS",
+    "description": "Experts in cleaning and debris collection in Miami. Efficiency, professionalism and sustainability.",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/logoicon.png",
+            "sizes": "256x256",
+            "type": "image/webp"
+        }
+    ]
+}

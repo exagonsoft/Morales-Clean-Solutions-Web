@@ -84,9 +84,9 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
           </div>
         </div>
         <div className="relative flex flex-col best-hauler-image">
-          <div class="star" style={{top:"10%", left: "20%"}}></div>
-          <div class="star" style={{top:"20%", left: "50%"}}></div>
-          <div class="star" style={{top:"30%", left: "80%"}}></div>
+          <div className="star" style={{top:"10%", left: "20%"}}></div>
+          <div className="star" style={{top:"20%", left: "50%"}}></div>
+          <div className="star" style={{top:"30%", left: "80%"}}></div>
           <motion.img
             transition={{ type: "spring", duration: 2 }}
             initial={{ opacity: 0 }}
