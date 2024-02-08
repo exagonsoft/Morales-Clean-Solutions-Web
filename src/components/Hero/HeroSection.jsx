@@ -93,7 +93,7 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
             whileInView={{ opacity: 1 }}
             src="/citycloud.webp"
             alt=""
-            className="sm:!w-[115%] !w-full sm:!h-[80%] !h-full !max-w-[115%] sm:!right-[-7rem] right-0 sm:top-[3rem] top-0 hero-image-back !absolute "
+            className="sm:!w-[115%] !w-full sm:!h-[80%] !h-full !max-w-[115%] sm:!right-[-7rem] right-0 sm:top-[3rem] top-0 hero-image-back !absolute blur-[1.5px]"
           />
           <motion.img
             transition={transition}
