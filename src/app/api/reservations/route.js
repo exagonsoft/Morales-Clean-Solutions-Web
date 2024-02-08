@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { connectToDB } from "@/config/dabconnection";
 import Reservation from "@/data/models/reservationShema";
 import { errors } from "@/settings/constants";
