@@ -53,6 +53,7 @@ body {
   justify-content: center;
   border-radius: 10px;
   width: fit-content;
+  box-shadow: 1px 2px 4px rgba(24, 23, 23, 0.834);
 }
 
 .button:hover {
