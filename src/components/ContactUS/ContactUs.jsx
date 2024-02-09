@@ -18,7 +18,7 @@ const ContactLink = ({link, icon, text ="", iconColor= ""}) => {
       className=" w-[80%] h-fit px-4 py-2 flex flex-col justify-center items-center gap-4 bg-[var(--color-light)] rounded-lg shadow-sm transitions hover:shadow-lg"
       target="blank"
     >
-      <span className={`text-[3rem] text-[${iconColor}] font-bold`}>{icon}</span>
+      <span className={`text-[3rem] font-bold`} style={{color: iconColor}}>{icon}</span>
       <span className=" font-bold">{text}</span>
     </a>
   );
@@ -46,6 +46,7 @@ const ContactUs = ({ inMobile, handleLoading }) => {
       handleLoading(true);
 
       let _result = await sendMailHandler(mailData);
+      cleanView();
 
       handleLoading(false);
       notify(Langs["en"].contactSectionUI.sendSuccess, notificationType.success);
