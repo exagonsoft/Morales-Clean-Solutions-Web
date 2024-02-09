@@ -75,6 +75,12 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
               </div>
             </div>
             <div className="sm:flex grid grid-cols-3 text-center justify-center items-center w-full sm:gap-8 gap-2">
+              <FooterLink
+                link="#"
+                text={"Home"}
+                onClick={() => handleSectionSelection("")}
+                className=""
+              ></FooterLink>
               {NavLinks.map((link, index) => (
                 <FooterLink
                   key={index}
