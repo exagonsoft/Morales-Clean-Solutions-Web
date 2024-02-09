@@ -34,7 +34,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
                   text={
                     <img
                       src="/logo.webp"
-                      alt="MCS"
+                      alt="MHS"
                       className="w-[100px] h-[100px] rounded-full self-center"
                     />
                   }
@@ -122,7 +122,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
             </span>
           </div>
           <div className="w-full flex justify-center items-center">
-            <span className="text-center font-bold">{`Marcos Clean Solutions 2002-${new Date().getFullYear()} | © All Rights Reserved`}</span>
+            <span className="text-center font-bold">{`Marcos Haul Solutions 2002-${new Date().getFullYear()} | © All Rights Reserved`}</span>
           </div>
         </div>
       </div>

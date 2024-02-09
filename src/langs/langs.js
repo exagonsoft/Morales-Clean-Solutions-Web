@@ -13,19 +13,21 @@ export const Langs = {
       friday: "Fri",
       saturday: "Sat",
       reservationBooked: "Reservation Booked",
-      footerSlogan: "We work every days to build a better, cleaner and green WORLD. Join us to save the PLANET."
+      footerSlogan: "We work every days to build a better, cleaner and green WORLD. Join us to save the PLANET.",
+      messageSended: "New contact message"
     },
     successUI: {
       createReservation: "Reservation booked successfully"
     },
     errorsUI: {
       getReservations: "Error getting reservations list",
-      createReservation: "Error booking the reservation"
+      createReservation: "Error booking the reservation",
+      mailError: "Error sending Mail"
     },
     navbarUI: {
       services: "Services",
       pricing: "Pricing",
-      about: "About MCS",
+      about: "About MHS",
       contact: "Contact Us",
       testimonials: "Testimonials",
     },
@@ -51,7 +53,7 @@ export const Langs = {
       recyclableList: "Recyclable Materials",
     },
     aboutSectionUI: {
-      title: "More about MCS",
+      title: "More about MHS",
       ourMissionParagraph1:
         "At Morales Clean Solutions, our mission is to revolutionize waste management by embracing a sustainable and environmentally conscious approach. We are committed to providing comprehensive solutions that go beyond traditional waste collection.",
       ourMissionParagraph2:
@@ -81,6 +83,15 @@ export const Langs = {
         "Our story is one of adaptation and evolution. We embraced challenges as opportunities to innovate, diversify our services, and contribute to the circular economy. We are proud to have developed specialized solutions for various waste streams, from everyday packaging to hazardous materials, ensuring the safe and responsible disposal of each.",
       ourStoryParagraph7:
         "Today, Morales Clean Solutions stands as a testament to the power of collective action and environmental consciousness. Our story is a dynamic narrative of growth, resilience, and a steadfast commitment to building a sustainable future. As we look ahead, our story continues to unfold, driven by the belief that every positive change, no matter how small, contributes to a healthier, more vibrant planet.",
+    },
+    contactSectionUI: {
+      title: "Get in Contact",
+      sendMessageButton: "Send Message",
+      sendSuccess: "Message sended successfully"
+    },
+    testimonialSectionUI: {
+      title: "Clients Opinions",
+      
     },
     footerSection: {
       

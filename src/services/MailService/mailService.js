@@ -15,7 +15,7 @@ export class MailService {
 
     // Define the email options
     const mailOptions = {
-      from: `Marcos Clean Solutions ${remittent}`,
+      from: `Marcos Haul Solutions ${remittent}`,
       to: receiver,
       subject: subject,
       html: message,

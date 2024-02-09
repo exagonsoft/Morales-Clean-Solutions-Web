@@ -11,11 +11,11 @@ export const NavLinks = [
   },
   {
     text: Langs["en"].navbarUI.about,
-    link: "#About MCS",
+    link: "#About MHS",
   },
   {
     text: Langs["en"].navbarUI.contact,
-    link: "#Contact",
+    link: "#Contact Us",
   },
   {
     text: Langs["en"].navbarUI.testimonials,
@@ -76,7 +76,7 @@ export const EmailData = {
                 </tr>
                 <tr>
                     <td>
-                        <p style="width: 100%; text-align: center;">The team of Marcos Clean Solutions (MCS) will
+                        <p style="width: 100%; text-align: center;">The team of Marcos Haul Solutions (MHS) will
                             contact you as soon as
                             possible to arrange the
                             service
@@ -97,7 +97,7 @@ export const EmailData = {
                             style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                             <img src="whatsapp_icon" alt="Web Icon"
                                 style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;">
-                            <span>MCS WhatsApp</span></a>
+                            <span>MHS WhatsApp</span></a>
                     </td>
                 </tr>
                 <tr>
@@ -106,7 +106,7 @@ export const EmailData = {
                             style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                             <img src="twitter_icon" alt="Web Icon"
                                 style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;">
-                            <span>MCS Tweeter</span>
+                            <span>MHS Tweeter</span>
                         </a>
                     </td>
                 </tr>
@@ -132,11 +132,11 @@ export const EmailData = {
                 </tr>
                 <tr>
                     <td>
-                        <a href="mcs_website" target="_blank"
+                        <a href="MHS_website" target="_blank"
                             style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                             <img src="web_icon" alt="Web Icon"
                                 style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;">
-                            <span>MCS WebSite</span>
+                            <span>MHS WebSite</span>
                         </a>
                     </td>
                 </tr>
@@ -146,16 +146,16 @@ export const EmailData = {
         </p>
         <div style="line-height: 10px;">
             <p style="color: black; font-weight: bold;">Regards</p>
-            <p style="color: black; font-weight: bold;">MCS Support Team</p>
+            <p style="color: black; font-weight: bold;">MHS Support Team</p>
         </div>
         <div style="width: fit-content;">
             <hr style="width: 100%; margin-top: 3rem;" />
             <p style="font-size: smaller; font-style: italic; font-family: 'Times New Roman', Times, serif;">
-                Copyright © _year MCS, All rights reserved.
+                Copyright © _year MHS, All rights reserved.
             </p>
         </div>
         <div>
-            <img src="https://morales-clean-solutions-web.vercel.app/logo.webp" alt="MCS"
+            <img src="https://morales-clean-solutions-web.vercel.app/logo.webp" alt="MHS"
                 style="width: 100px; height: 100px; border-radius: 50%" />
         </div>
     </div>
@@ -221,16 +221,16 @@ htmlSupportReservationBookedBody: `
         </p>
         <div style="line-height: 10px;">
             <p style="color: black; font-weight: bold;">Regards</p>
-            <p style="color: black; font-weight: bold;">MCS Platform System</p>
+            <p style="color: black; font-weight: bold;">MHS Platform System</p>
         </div>
         <div style="width: fit-content;">
             <hr style="width: 100%; margin-top: 3rem;" />
             <p style="font-size: smaller; font-style: italic; font-family: 'Times New Roman', Times, serif;">
-                Copyright © _year MCS, All rights reserved.
+                Copyright © _year MHS, All rights reserved.
             </p>
         </div>
         <div>
-            <img src="https://morales-clean-solutions-web.vercel.app/logo.webp" alt="MCS"
+            <img src="https://morales-clean-solutions-web.vercel.app/logo.webp" alt="MHS"
                 style="width: 100px; height: 100px; border-radius: 50%" />
         </div>
     </div>

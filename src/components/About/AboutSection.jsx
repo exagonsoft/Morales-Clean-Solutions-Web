@@ -18,7 +18,7 @@ const AboutSection = ({inMobile}) => {
       sectionId={Langs["en"].navbarUI.about}
       title={Langs["en"].aboutSectionUI.title}
     >
-      <div className="w-full flex flex-col gap-8 sm:py-8 py-0">
+      <div className="w-full flex flex-col gap-8 py-8">
         <div className="w-full my-6">
             <Carousel images={AboutImages} inMobile={inMobile}/>
         </div>

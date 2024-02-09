@@ -1,8 +1,10 @@
 "use client";
 
-import dynamic  from "next/dynamic";
+import dynamic from "next/dynamic";
 import AboutSection from "@/components/About/AboutSection";
-const ReservationBooker = dynamic(() => import('@/components/Booker/ReservationBooker'));
+const ReservationBooker = dynamic(() =>
+  import("@/components/Booker/ReservationBooker")
+);
 import Footer from "@/components/Footer/Footer";
 import HeroSection from "@/components/Hero/HeroSection";
 import NavBar from "@/components/NavBar/NavBar";
@@ -11,11 +13,15 @@ import ServicesSection from "@/components/Services/ServicesSection";
 import { ToastNotification } from "@/handlers/notificationsHandler";
 import { Dimensions } from "@/settings/constants";
 import { useEffect, useState } from "react";
+import ContactUs from "@/components/ContactUS/ContactUs";
+import Testimonials from "@/components/Testimonials/Testimonials";
+import Loader from "@/components/Loader/Loader";
 
 export default function Home() {
   const [inMobile, setInMobile] = useState(false);
   const [showBooker, setShowBooker] = useState(false);
-  const [selectedSection, setSelectedSection] = useState('');
+  const [selectedSection, setSelectedSection] = useState("");
+  const [loading, setIsLoading] = useState(false);
 
   const freezeScreen = () => {
     document.body.style.overflowY = "hidden";
@@ -37,6 +43,15 @@ export default function Home() {
 
   const handleSectionSelection = (section) => {
     setSelectedSection((prevData) => section);
+  };
+
+  const handleLoading = (loading) => {
+    setIsLoading((prevData) => loading)
+    if(loading || showBooker){
+      freezeScreen();
+    }else{
+      unFreezeScreen();
+    }
   }
 
   useEffect(() => {
@@ -60,13 +75,35 @@ export default function Home() {
   return (
     <main className="flex min-h-screen overflow-hidden flex-col items-center">
       <ToastNotification />
-      {showBooker ? <ReservationBooker hideBookerHandler={hideBookerHandler}/> : <></>}
-      <NavBar freezeScreen={freezeScreen} unFreezeScreen={unFreezeScreen} selectedSection={selectedSection} handleSectionSelection={handleSectionSelection}/>
-      <HeroSection inMobile={inMobile} showBookerHandler={showBookerHandler}/>
-      <ServicesSection inMobile={inMobile} showBookerHandler={showBookerHandler}/>
-      <PricingSection showBookerHandler={showBookerHandler}/>
+      {loading ? (
+        <Loader />
+      ) : (
+        <></>
+      )}
+      {showBooker ? (
+        <ReservationBooker hideBookerHandler={hideBookerHandler} handleLoading={handleLoading}/>
+      ) : (
+        <></>
+      )}
+      <NavBar
+        freezeScreen={freezeScreen}
+        unFreezeScreen={unFreezeScreen}
+        selectedSection={selectedSection}
+        handleSectionSelection={handleSectionSelection}
+      />
+      <HeroSection inMobile={inMobile} showBookerHandler={showBookerHandler} />
+      <ServicesSection
+        inMobile={inMobile}
+        showBookerHandler={showBookerHandler}
+      />
+      <PricingSection showBookerHandler={showBookerHandler} />
       <AboutSection inMobile={inMobile} />
-      <Footer selectedSection={selectedSection} handleSectionSelection={handleSectionSelection}/>
+      <ContactUs inMobile={inMobile} handleLoading={handleLoading}/>
+      <Testimonials />
+      <Footer
+        selectedSection={selectedSection}
+        handleSectionSelection={handleSectionSelection}
+      />
     </main>
   );
 }

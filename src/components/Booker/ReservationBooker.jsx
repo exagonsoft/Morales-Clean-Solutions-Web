@@ -18,10 +18,9 @@ import {
 import { getMonthNames } from "@/utils/utilfuntions";
 import { notify } from "@/handlers/notificationsHandler";
 
-const ReservationBooker = ({ hideBookerHandler }) => {
+const ReservationBooker = ({ hideBookerHandler, handleLoading }) => {
   const [reservationData, setReservationData] = useState(reservationModel);
   const [unavailableDates, setUnavailableDates] = useState([]);
-  const [loading, setIsLoading] = useState(false);
 
   const updateReservationData = (value, target) => {
     setReservationData((prevData) => ({ ...prevData, [target]: value }));
@@ -111,24 +110,26 @@ const ReservationBooker = ({ hideBookerHandler }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setIsLoading((prevData) => true);
+      handleLoading(true);
       const _result = await createReservation(reservationData);
-
-      if (_result) {
-        await sendUserMail();
-        await sendSupportMail();
-        hideBookerHandler();
-        setIsLoading((prevData) => false);
-        notify(
-          Langs["en"].successUI.createReservation,
-          notificationType.success
-        );
-      }
     } catch (error) {
       console.log("⛔", error);
-      setIsLoading((prevData) => false);
+      handleLoading(false);
       notify(Langs["en"].errorsUI.createReservation, notificationType.error);
     }
+
+    try {
+      await sendUserMail();
+      await sendSupportMail();
+    } catch (error) {
+      console.log("⛔", error);
+      handleLoading(false);
+      notify(Langs["en"].errorsUI.mailError, notificationType.error);
+    }
+
+    hideBookerHandler();
+    handleLoading(false);
+    notify(Langs["en"].successUI.createReservation, notificationType.success);
   };
 
   const loadReservations = async () => {
@@ -143,17 +144,17 @@ const ReservationBooker = ({ hideBookerHandler }) => {
         );
         setUnavailableDates(_unavailableDates);
         setUnavailableDates((prevData) => _unavailableDates);
-        setIsLoading((prevData) => false);
+        handleLoading(false);
       }
     } catch (error) {
       console.log("", error);
-      setIsLoading((prevData) => false);
+      handleLoading(false);
       notify(Langs["en"].errorsUI.getReservations, notificationType.error);
     }
   };
 
   useEffect(() => {
-    setIsLoading((prevData) => true);
+    handleLoading(true);
     loadReservations();
   }, []);
 
@@ -162,22 +163,6 @@ const ReservationBooker = ({ hideBookerHandler }) => {
       <div className="w-full h-screen z-[45] glassmorphism"></div>
       <div className="w-full sm:py-0 py-4 h-screen z-[48] absolute top-0 left-0 flex justify-center items-baseline sm:items-center overflow-hidden overflow-y-auto">
         <div className="relative flex flex-col px-8 py-4 rounded-lg shadow-xl bg-[--color-secondary] border-t-[--color-primary] border-t-[.5rem] sm:w-[60%] w-[94%] animatedEntrance">
-          {loading ? (
-            <div className="absolute inset-0 z-[10]  !rounded-md">
-              <div className="w-full h-full absolute inset-0 z-[5] glassmorphism"></div>
-              <div className="relative w-full h-full z-[8] flex justify-center items-center">
-                <span className="">
-                  <img
-                    src="/loading-54.gif"
-                    alt="LOADING..."
-                    className="w-[8rem] h-[8rem] rounded-full"
-                  />
-                </span>
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
           <div className="w-full flex flex-col justify-center items-center gap-8 sm:my-0 my-8">
             <h1 className="text-white font-bold uppercase sm:text-[1.5rem] text-[1rem] text-center">
               Book your reservation Online
