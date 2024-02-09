@@ -78,7 +78,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
               <FooterLink
                 link="#"
                 text={"Home"}
-                onClick={() => handleSectionSelection("")}
+                onSelected={() => handleSectionSelection("")}
                 className=""
               ></FooterLink>
               {NavLinks.map((link, index) => (
