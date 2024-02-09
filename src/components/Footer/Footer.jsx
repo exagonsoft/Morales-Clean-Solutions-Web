@@ -4,6 +4,8 @@ import { SiFacebook, SiTwitter, SiWhatsapp, SiLinkedin } from "react-icons/si";
 import { NavLinks, SystemVariables } from "@/settings/constants";
 import { Link } from "react-scroll";
 import Estimator from "../Estimator/Estimator";
+import Exagonsoft_logo from "../Reusable/exagonsoft_logo";
+import Next_logo from "../Reusable/next_logo";
 
 const FooterLink = ({ text, link, onSelected, textColor = "text-white" }) => {
   return (
@@ -104,18 +106,10 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
                   href="https://main.d401teswsrn9u.amplifyapp.com"
                   target="blank"
                 >
-                  <img
-                    src="/exagonsoftlogo.webp"
-                    alt="EXAGON-SOFT"
-                    className="w-[120px] h-[40px]"
-                  />
+                  <Exagonsoft_logo width="120px" height="40px"/>
                 </a>
                 <a href="https://nextjs.org" target="blank">
-                  <img
-                    src="/nextlogo.webp"
-                    alt="NEXT JS"
-                    className="w-[120px] h-[40px]"
-                  />
+                  <Next_logo width="120" height="40"/>
                 </a>
               </div>
             </div>
