@@ -13,7 +13,7 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
   const backgroundTransition = { type: "spring", duration: 1.5 };
 
   return (
-    <section id="#" className="w-full flex flex-col items-center">
+    <section id="#Home" className="w-full flex flex-col items-center">
       <div className="w-full nav-bg pt-[6rem] flex hero-flex pb-[5rem]">
         <div className="flex flex-col px-4 best-hauler-add gap-8">
           <div className="best-hauler shadow-md">

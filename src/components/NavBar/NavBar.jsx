@@ -58,7 +58,7 @@ const NavSideBar = ({ toggleMenu, handleSectionSelection, selected }) => {
         <NavLink
           key={-1}
           text="Home"
-          link="#"
+          link="#Home"
           toggleMenu={toggleMenu}
           onSelected={handleSectionSelection}
         />
@@ -164,7 +164,7 @@ const NavBar = ({
         }`}
       >
         <Link
-          to="#"
+          to="#Home"
           spy={true}
           smooth={true}
           className="flex justify-center items-center gap-2 cursor-pointer"

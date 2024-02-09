@@ -30,7 +30,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
             <div className="flex sm:flex-row flex-col w-full justify-between items-center py4 sm:gap-0 gap-6">
               <div className="w-full flex items-center sm:justify-start justify-center sm:mb-[-8rem] mb-0">
                 <FooterLink
-                  link="#"
+                  link="#Home"
                   text={
                     <img
                       src="/logo.webp"
@@ -39,7 +39,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
                       loading="lazy"
                     />
                   }
-                  onClick={() => handleSectionSelection("")}
+                  onSelected={() => handleSectionSelection("")}
                   className=""
                 ></FooterLink>
               </div>
@@ -79,7 +79,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
             </div>
             <div className="sm:flex grid grid-cols-3 text-center justify-center items-center w-full sm:gap-8 gap-2">
               <FooterLink
-                link="#"
+                link="#Home"
                 text={"Home"}
                 onSelected={() => handleSectionSelection("")}
                 className=""
@@ -106,10 +106,11 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
                 <a
                   href="https://main.d401teswsrn9u.amplifyapp.com"
                   target="blank"
+                  title="EXAGON-SOFT Landing Page"
                 >
                   <Exagonsoft_logo width="120px" height="40px"/>
                 </a>
-                <a href="https://nextjs.org" target="blank">
+                <a href="https://nextjs.org" target="blank" title="Next js Landing Page">
                   <Next_logo width="120" height="40"/>
                 </a>
               </div>
