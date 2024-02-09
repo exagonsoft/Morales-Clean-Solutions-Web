@@ -5,15 +5,16 @@ import { NavLinks, SystemVariables } from "@/settings/constants";
 import { Link } from "react-scroll";
 import Estimator from "../Estimator/Estimator";
 
-const FooterLink = ({ text, link }) => {
+const FooterLink = ({ text, link, onSelected, textColor = "text-white" }) => {
   return (
     <Link
       to={link}
       spy={true}
       smooth={true}
       className="nav-link cursor-pointer"
+      onClick={() => onSelected(text)}
     >
-      <span className="text-white font-bold">{text}</span>
+      <span className={`${textColor} font-bold`}>{text}</span>
     </Link>
   );
 };
@@ -39,16 +40,32 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
                 ></FooterLink>
               </div>
               <div className="w-full flex justify-center items-center gap-8 social-links">
-                <a href={SystemVariables.facebookLink} aria-label="Follow us in Facebook" target="blank">
+                <a
+                  href={SystemVariables.facebookLink}
+                  aria-label="Follow us in Facebook"
+                  target="blank"
+                >
                   <SiFacebook />
                 </a>
-                <a href={SystemVariables.twitterLink} aria-label="Follow us in Twitter" target="blank">
+                <a
+                  href={SystemVariables.twitterLink}
+                  aria-label="Follow us in Twitter"
+                  target="blank"
+                >
                   <SiTwitter />
                 </a>
-                <a href={SystemVariables.whatsappLink} aria-label="Contact us over WhatsApp" target="blank">
+                <a
+                  href={SystemVariables.whatsappLink}
+                  aria-label="Contact us over WhatsApp"
+                  target="blank"
+                >
                   <SiWhatsapp />
                 </a>
-                <a href={SystemVariables.linkedInLink} aria-label="Find us in LinkedIn" target="blank">
+                <a
+                  href={SystemVariables.linkedInLink}
+                  aria-label="Find us in LinkedIn"
+                  target="blank"
+                >
                   <SiLinkedin />
                 </a>
               </div>
@@ -58,7 +75,17 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
             </div>
             <div className="sm:flex grid grid-cols-3 text-center justify-center items-center w-full sm:gap-8 gap-2">
               {NavLinks.map((link, index) => (
-                <FooterLink key={index} text={link.text} link={link.link} />
+                <FooterLink
+                  key={index}
+                  text={link.text}
+                  link={link.link}
+                  onSelected={handleSectionSelection}
+                  textColor={
+                    selectedSection === link.text
+                      ? "text-[var(--color-primary)]"
+                      : "text-white"
+                  }
+                />
               ))}
             </div>
             <div className="flex flex-col gap-2 items-center mt-4 rounded-lg px-4 py-2 border border-solid border-gray-300">
@@ -76,10 +103,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
                     className="w-[120px] h-[40px]"
                   />
                 </a>
-                <a
-                  href="https://nextjs.org"
-                  target="blank"
-                >
+                <a href="https://nextjs.org" target="blank">
                   <img
                     src="/nextlogo.webp"
                     alt="NEXT JS"

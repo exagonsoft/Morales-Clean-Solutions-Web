@@ -69,7 +69,7 @@ const NavSideBar = ({ toggleMenu, handleSectionSelection, selected }) => {
             link={link.link}
             toggleMenu={toggleMenu}
             onSelected={handleSectionSelection}
-            textColor={selected === link.text ? 'text-[var(--color-secondary)]' : 'text-white'}
+            textColor={selected === link.text ? 'text-[text-black]' : 'text-white'}
           />
         ))}
       </motion.div>
