@@ -7,21 +7,36 @@ import { Link } from "react-scroll";
 import { FaBars, FaCross, FaWindowClose } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const NavLink = ({ text, link, toggleMenu }) => {
+const NavLink = ({
+  text,
+  link,
+  toggleMenu = null,
+  onSelected,
+  textColor = 'text-white',
+}) => {
   return (
     <Link
       to={link}
       spy={true}
       smooth={true}
       className="nav-link cursor-pointer"
-      onClick={toggleMenu}
+      onClick={() => {
+        if (toggleMenu) {
+          toggleMenu();
+        }
+        onSelected(text);
+      }}
     >
-      <span className="text-white font-bold">{text}</span>
+      <span
+        className={`${textColor} font-bold`}
+      >
+        {text}
+      </span>
     </Link>
   );
 };
 
-const NavSideBar = ({ toggleMenu }) => {
+const NavSideBar = ({ toggleMenu, handleSectionSelection, selected }) => {
   const transition = { type: "spring", duration: 1 };
 
   return (
@@ -40,13 +55,21 @@ const NavSideBar = ({ toggleMenu }) => {
           <FaWindowClose />
         </div>
         <br />
-        <NavLink key={-1} text="Home" link="#" toggleMenu={toggleMenu} />
+        <NavLink
+          key={-1}
+          text="Home"
+          link="#"
+          toggleMenu={toggleMenu}
+          onSelected={handleSectionSelection}
+        />
         {NavLinks.map((link, index) => (
           <NavLink
             key={index}
             text={link.text}
             link={link.link}
             toggleMenu={toggleMenu}
+            onSelected={handleSectionSelection}
+            textColor={selected === link.text ? 'text-[var(--color-secondary)]' : 'text-white'}
           />
         ))}
       </motion.div>
@@ -54,16 +77,21 @@ const NavSideBar = ({ toggleMenu }) => {
   );
 };
 
-const NavBar = ({freezeScreen, unFreezeScreen}) => {
+const NavBar = ({
+  freezeScreen,
+  unFreezeScreen,
+  selectedSection,
+  handleSectionSelection,
+}) => {
   const [atHome, setAtHome] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [inMobile, setInMobile] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen((prevState) => !menuOpen);
-    if(!menuOpen){
+    if (!menuOpen) {
       freezeScreen();
-    }else{
+    } else {
       unFreezeScreen();
     }
   };
@@ -107,6 +135,11 @@ const NavBar = ({freezeScreen, unFreezeScreen}) => {
     };
   }, []);
 
+  useEffect(() => {
+    console.log(selectedSection);
+  }, [selectedSection])
+  
+
   return (
     <>
       {atHome ? (
@@ -114,7 +147,15 @@ const NavBar = ({freezeScreen, unFreezeScreen}) => {
       ) : (
         <div className=" w-screen fixed h-[6rem] top-0 z-10 nav-blur nav-animation"></div>
       )}
-      {menuOpen ? <NavSideBar toggleMenu={toggleMenu} /> : <></>}
+      {menuOpen ? (
+        <NavSideBar
+          toggleMenu={toggleMenu}
+          handleSectionSelection={handleSectionSelection}
+          selected={selectedSection}
+        />
+      ) : (
+        <></>
+      )}
       <nav
         className={`h-[5rem] flex justify-between items-center z-20 nav-width  px-4 mx-8 my-2  ${
           atHome
@@ -127,6 +168,7 @@ const NavBar = ({freezeScreen, unFreezeScreen}) => {
           spy={true}
           smooth={true}
           className="flex justify-center items-center gap-2 cursor-pointer"
+          onClick={() => handleSectionSelection("")}
         >
           <img src="/logo.webp" alt="MCS" className="w-[4rem] rounded-full" />{" "}
           <span className="text-white font-extrabold">MCS</span>
@@ -141,7 +183,13 @@ const NavBar = ({freezeScreen, unFreezeScreen}) => {
         ) : (
           <div className="flex items-center gap-4">
             {NavLinks.map((link, index) => (
-              <NavLink key={index} text={link.text} link={link.link} />
+              <NavLink
+                key={index}
+                text={link.text}
+                link={link.link}
+                onSelected={handleSectionSelection}
+                textColor={selectedSection === link.text ? 'text-[var(--color-primary)]' : 'text-white'}
+              />
             ))}
           </div>
         )}

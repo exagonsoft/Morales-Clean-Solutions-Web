@@ -18,7 +18,7 @@ const FooterLink = ({ text, link }) => {
   );
 };
 
-const Footer = ({ inMobile }) => {
+const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
   return (
     <section id="footer" className="w-full mt-8">
       <div className="w-full flex flex-col">

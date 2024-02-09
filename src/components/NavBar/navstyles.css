@@ -19,6 +19,10 @@
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
+.nav-link-selected {
+    text-shadow: 0 0 20px var(--color-primary);
+}
+
 .nav-animation {
     animation: flyDown linear .5s;
 }

@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [inMobile, setInMobile] = useState(false);
   const [showBooker, setShowBooker] = useState(false);
+  const [selectedSection, setSelectedSection] = useState('');
 
   const freezeScreen = () => {
     document.body.style.overflowY = "hidden";
@@ -34,6 +35,10 @@ export default function Home() {
     unFreezeScreen();
   };
 
+  const handleSectionSelection = (section) => {
+    setSelectedSection((prevData) => section);
+  }
+
   useEffect(() => {
     // Check window width only in client-side (browser) environment
     const handleResize = () => {
@@ -50,18 +55,18 @@ export default function Home() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [inMobile]);
+  }, [inMobile, selectedSection]);
 
   return (
     <main className="flex min-h-screen overflow-hidden flex-col items-center">
       <ToastNotification />
       {showBooker ? <ReservationBooker hideBookerHandler={hideBookerHandler}/> : <></>}
-      <NavBar freezeScreen={freezeScreen} unFreezeScreen={unFreezeScreen}/>
+      <NavBar freezeScreen={freezeScreen} unFreezeScreen={unFreezeScreen} selectedSection={selectedSection} handleSectionSelection={handleSectionSelection}/>
       <HeroSection inMobile={inMobile} showBookerHandler={showBookerHandler}/>
       <ServicesSection inMobile={inMobile} showBookerHandler={showBookerHandler}/>
       <PricingSection showBookerHandler={showBookerHandler}/>
       <AboutSection inMobile={inMobile} />
-      <Footer />
+      <Footer selectedSection={selectedSection} handleSectionSelection={handleSectionSelection}/>
     </main>
   );
 }
