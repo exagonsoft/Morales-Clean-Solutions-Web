@@ -92,6 +92,7 @@ const Carousel = ({ images, interval = 20000, inMobile }) => {
               src={image}
               alt={`Slide ${index + 1}`}
               className={`rounded-md`}
+              loading="lazy"
             />
           </div>
         ))}

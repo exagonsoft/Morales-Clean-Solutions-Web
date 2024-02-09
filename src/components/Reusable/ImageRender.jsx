@@ -13,7 +13,7 @@ const ImageRender = ({ imageUrl, defaultImageUrl, altText, ref= null, classNames
 
   useEffect(() => {}, [imageUrl]);
 
-  return <img id={imageUrl} src={imageSrc} alt={altText} onLoad={handleImageLoad} className={classNames} ref={ref}/>;
+  return <img id={imageUrl} src={imageSrc} alt={altText} onLoad={handleImageLoad} className={classNames} ref={ref} loading="lazy"/>;
 };
 
 export default ImageRender;

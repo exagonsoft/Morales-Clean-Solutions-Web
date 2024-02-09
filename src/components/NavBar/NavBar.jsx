@@ -170,7 +170,7 @@ const NavBar = ({
           className="flex justify-center items-center gap-2 cursor-pointer"
           onClick={() => handleSectionSelection("")}
         >
-          <img src="/logo.webp" alt="MHS" className="w-[4rem] rounded-full" />{" "}
+          <img src="/logo.webp" alt="MHS" className="w-[4rem] rounded-full" loading="lazy"/>{" "}
           <span className="text-white font-extrabold">MHS</span>
         </Link>
         {inMobile ? (

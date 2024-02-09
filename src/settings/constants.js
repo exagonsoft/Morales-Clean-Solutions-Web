@@ -96,7 +96,8 @@ export const EmailData = {
                         <a href="whatsapp_link" target="_blank"
                             style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                             <img src="whatsapp_icon" alt="Web Icon"
-                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;">
+                                loading="lazy"
+                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;" />
                             <span>MHS WhatsApp</span></a>
                     </td>
                 </tr>
@@ -105,7 +106,8 @@ export const EmailData = {
                         <a href="twitter_link" target="_blank"
                             style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                             <img src="twitter_icon" alt="Web Icon"
-                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;">
+                                loading="lazy"
+                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;" />
                             <span>MHS Tweeter</span>
                         </a>
                     </td>
@@ -115,7 +117,8 @@ export const EmailData = {
                         <div
                             style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                             <img src="mobile_icon" alt="Web Icon"
-                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;">
+                                loading="lazy"
+                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;" />
                             <span>support_mobile</span>
                         </div>
                     </td>
@@ -125,7 +128,8 @@ export const EmailData = {
                         <div
                             style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                             <img src="phone_icon" alt="Web Icon"
-                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;">
+                                loading="lazy"
+                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;" />
                             <span>support_phone</span>
                         </div>
                     </td>
@@ -135,7 +139,8 @@ export const EmailData = {
                         <a href="MHS_website" target="_blank"
                             style="display: flex; gap: .5rem; justify-content:start; align-items:center; text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:.5rem 1rem; background: rgb(51, 82, 184); border-radius:5px; color: white;">
                             <img src="web_icon" alt="Web Icon"
-                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;">
+                                loading="lazy"
+                                style="width: 1rem; height:1rem; border-radius: 50%; margin: 0 5px;" />
                             <span>MHS WebSite</span>
                         </a>
                     </td>
@@ -156,6 +161,7 @@ export const EmailData = {
         </div>
         <div>
             <img src="https://morales-clean-solutions-web.vercel.app/logo.webp" alt="MHS"
+                loading="lazy"
                 style="width: 100px; height: 100px; border-radius: 50%" />
         </div>
     </div>
@@ -231,6 +237,7 @@ htmlSupportReservationBookedBody: `
         </div>
         <div>
             <img src="https://morales-clean-solutions-web.vercel.app/logo.webp" alt="MHS"
+                loading="lazy"
                 style="width: 100px; height: 100px; border-radius: 50%" />
         </div>
     </div>

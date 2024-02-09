@@ -10,6 +10,7 @@ const Loader = () => {
             src="/loading-54.gif"
             alt="LOADING..."
             className="w-[8rem] h-[8rem] rounded-full"
+            loading="lazy"
           />
         </span>
       </div>

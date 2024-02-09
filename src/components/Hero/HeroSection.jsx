@@ -101,7 +101,7 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
             whileInView={{ left: 0, opacity: 1 }}
             className="relative flex w-[95%] h-full justify-center items-center py-8"
           >
-            <img src="/herotruck.webp" alt="" className="hero-image-back" />
+            <img src="/herotruck.webp" alt="A Truck" className="hero-image-back" loading="lazy"/>
           </motion.div>
         </div>
       </div>

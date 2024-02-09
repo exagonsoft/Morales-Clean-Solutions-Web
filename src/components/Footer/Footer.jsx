@@ -36,6 +36,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
                       src="/logo.webp"
                       alt="MHS"
                       className="w-[100px] h-[100px] rounded-full self-center"
+                      loading="lazy"
                     />
                   }
                   onClick={() => handleSectionSelection("")}
