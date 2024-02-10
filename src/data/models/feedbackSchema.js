@@ -1,8 +1,8 @@
-import { Schema, model, models } from "mongoose";
+const mongoose = require("mongoose");
 
-const FeedBackSchema = new Schema({
+const FeedBackSchema = new mongoose.Schema({
   creator: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: [true, "Creator is required!"],
   },
@@ -13,5 +13,6 @@ const FeedBackSchema = new Schema({
 });
 
 const FeedBack =
-  models.FeedBack || model("FeedBack", FeedBackSchema);
-export default FeedBack;
+mongoose.models.FeedBack || mongoose.model("FeedBack", FeedBackSchema);
+
+module.exports = FeedBack;

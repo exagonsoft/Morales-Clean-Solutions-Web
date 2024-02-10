@@ -1,22 +1,21 @@
 // registerModels.js
 
-import { readdirSync } from 'fs';
-import { join } from 'path';
-import { connect } from 'mongoose';
-import { connectToDB } from '@/config/dabconnection';
+const fs = require('fs');
+const path = require('path');
+const mongoose = require('mongoose');
 
-const modelsDir = join(__dirname, '/src/data/models/');
+const modelsDir = path.join(__dirname, '/src/data/models/');
 
 // Get all model files in the models directory
-const modelFiles = readdirSync(modelsDir).filter(file => file.endsWith('Schema.js'));
+const modelFiles = fs.readdirSync(modelsDir).filter(file => file.endsWith('Schema.js'));
 
 // Register each model
 modelFiles.forEach(file => {
-  const modelPath = join(modelsDir, file);
+  const modelPath = path.join(modelsDir, file);
   require(modelPath);
 });
 
 // Connect to the database
-connectToDB()
+mongoose.connect('mongodb+srv://exagonsoft:XH6Nuf08qF57Pg7H@msccluster.adammha.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to database'))
   .catch(error => console.error('Database connection error:', error));

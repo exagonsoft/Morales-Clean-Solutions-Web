@@ -1,8 +1,8 @@
-import { Schema, model, models } from "mongoose";
+const mongoose = require("mongoose");
 
-const ReservationSchema = new Schema({
+const ReservationSchema = new mongoose.Schema({
   creator: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: [true, "Creator is required!"],
   },
@@ -14,5 +14,5 @@ const ReservationSchema = new Schema({
 });
 
 const Reservation =
-  models.Reservation || model("Reservation", ReservationSchema);
-export default Reservation;
+mongoose.models.Reservation || mongoose.model("Reservation", ReservationSchema);
+module.exports = Reservation;
