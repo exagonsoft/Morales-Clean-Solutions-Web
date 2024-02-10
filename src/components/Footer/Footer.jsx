@@ -77,7 +77,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
                 <Estimator />
               </div>
             </div>
-            <div className="sm:flex grid grid-cols-3 text-center justify-center items-center w-full sm:gap-8 gap-2">
+            <div className="footer-links-container text-center justify-center items-center sm:gap-8 gap-2">
               <FooterLink
                 link="#Home"
                 text={"Home"}

@@ -1,7 +1,31 @@
-.social-links{
+.social-links {
     width: fit-content;
 }
 
-.social-links > a {
+.social-links>a {
     font-size: 2rem;
+}
+
+.footer-links-container {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+
+@media screen and (max-width: 1640px) {
+    .footer-links-container {
+        width: 40%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .footer-links-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: .5rem;
+    }
 }

@@ -14,7 +14,7 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
 
   return (
     <section id="#Home" className="w-full flex flex-col items-center">
-      <div className="w-full nav-bg pt-[6rem] flex hero-flex pb-[5rem]">
+      <div className="w-full sm:h-screen h-auto nav-bg pt-[6rem] flex hero-flex pb-[5rem]">
         <div className="flex flex-col px-4 best-hauler-add gap-8">
           <div className="best-hauler shadow-md">
             <motion.div
