@@ -30,7 +30,7 @@ const Testimonials = ({ selectedLanguage, showOpinionHandler }) => {
             </p>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-8 justify-center items-center">
+        <div className="w-full flex flex-col gap-8 sm:justify-end justify-center items-center">
           <div className="w-full flex">
             <FeedBack />
           </div>

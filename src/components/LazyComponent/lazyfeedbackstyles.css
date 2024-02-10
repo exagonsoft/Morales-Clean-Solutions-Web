@@ -1,0 +1,36 @@
+.loader {
+    width: -webkit-fill-available;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.effect {
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.effect::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: loaderAnimation 2s linear infinite;
+    /* Adjust animation duration as needed */
+}
+
+@keyframes loaderAnimation {
+    from {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    to {
+        transform: translate(50%, 50%) rotate(45deg);
+    }
+}
