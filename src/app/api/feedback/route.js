@@ -10,12 +10,13 @@ export const GET = async (req) => {
     await connectToDB();
 
     const feedbacks = await FeedBack.find({}).populate('creator');
+    console.log(feedbacks);
 
     return NextResponse.json(JSON.stringify(feedbacks), { status: 200 });
   } catch (error) {
     console.log(error);
     return NextResponse.json(
-      { message: errors.internalServerError },
+      { message: errors.internalServerError, error: error },
       { status: 500 }
     );
   }
