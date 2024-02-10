@@ -1,3 +1,5 @@
+"use client"
+
 export const createFeedBack = async (feedback) => {
   try {
     const res = await fetch("/api/feedback/new", {

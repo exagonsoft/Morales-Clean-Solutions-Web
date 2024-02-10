@@ -1,3 +1,5 @@
+"use client"
+
 export const createUser = async (user) => {
     try {
       const res = await fetch("/api/users/new", {

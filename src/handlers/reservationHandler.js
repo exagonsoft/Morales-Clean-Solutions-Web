@@ -1,3 +1,5 @@
+"use client"
+
 export const createReservation = async (reservation) => {
   try {
     const res = await fetch("/api/reservations/new", {
