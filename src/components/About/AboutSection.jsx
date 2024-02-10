@@ -12,11 +12,11 @@ const Paragraph = ({ text }) => {
   );
 };
 
-const AboutSection = ({inMobile}) => {
+const AboutSection = ({inMobile, selectedLanguage }) => {
   return (
     <SectionWrapper
-      sectionId={Langs["en"].navbarUI.about}
-      title={Langs["en"].aboutSectionUI.title}
+      sectionId={Langs[selectedLanguage].navbarUI.about}
+      title={Langs[selectedLanguage].aboutSectionUI.title}
     >
       <div className="w-full flex flex-col gap-8 py-8">
         <div className="w-full my-6">
@@ -29,13 +29,13 @@ const AboutSection = ({inMobile}) => {
               <span className="text-white"> Story</span>
             </h1>
             <div className="flex flex-col  text-white gap-4">
-              <Paragraph text={Langs["en"].aboutSectionUI.ourStoryParagraph1} />
-              <Paragraph text={Langs["en"].aboutSectionUI.ourStoryParagraph2} />
-              <Paragraph text={Langs["en"].aboutSectionUI.ourStoryParagraph3} />
-              <Paragraph text={Langs["en"].aboutSectionUI.ourStoryParagraph4} />
-              <Paragraph text={Langs["en"].aboutSectionUI.ourStoryParagraph5} />
-              <Paragraph text={Langs["en"].aboutSectionUI.ourStoryParagraph6} />
-              <Paragraph text={Langs["en"].aboutSectionUI.ourStoryParagraph7} />
+              <Paragraph text={Langs[selectedLanguage].aboutSectionUI.ourStoryParagraph1} />
+              <Paragraph text={Langs[selectedLanguage].aboutSectionUI.ourStoryParagraph2} />
+              <Paragraph text={Langs[selectedLanguage].aboutSectionUI.ourStoryParagraph3} />
+              <Paragraph text={Langs[selectedLanguage].aboutSectionUI.ourStoryParagraph4} />
+              <Paragraph text={Langs[selectedLanguage].aboutSectionUI.ourStoryParagraph5} />
+              <Paragraph text={Langs[selectedLanguage].aboutSectionUI.ourStoryParagraph6} />
+              <Paragraph text={Langs[selectedLanguage].aboutSectionUI.ourStoryParagraph7} />
             </div>
           </div>
           <div className="w-full flex flex-col justify-start items-center gap-4">
@@ -45,25 +45,25 @@ const AboutSection = ({inMobile}) => {
             </h1>
             <div className="flex flex-col  text-white gap-4">
               <Paragraph
-                text={Langs["en"].aboutSectionUI.ourMissionParagraph1}
+                text={Langs[selectedLanguage].aboutSectionUI.ourMissionParagraph1}
               />
               <Paragraph
-                text={Langs["en"].aboutSectionUI.ourMissionParagraph2}
+                text={Langs[selectedLanguage].aboutSectionUI.ourMissionParagraph2}
               />
               <Paragraph
-                text={Langs["en"].aboutSectionUI.ourMissionParagraph3}
+                text={Langs[selectedLanguage].aboutSectionUI.ourMissionParagraph3}
               />
               <Paragraph
-                text={Langs["en"].aboutSectionUI.ourMissionParagraph4}
+                text={Langs[selectedLanguage].aboutSectionUI.ourMissionParagraph4}
               />
               <Paragraph
-                text={Langs["en"].aboutSectionUI.ourMissionParagraph5}
+                text={Langs[selectedLanguage].aboutSectionUI.ourMissionParagraph5}
               />
               <Paragraph
-                text={Langs["en"].aboutSectionUI.ourMissionParagraph6}
+                text={Langs[selectedLanguage].aboutSectionUI.ourMissionParagraph6}
               />
               <Paragraph
-                text={Langs["en"].aboutSectionUI.ourMissionParagraph7}
+                text={Langs[selectedLanguage].aboutSectionUI.ourMissionParagraph7}
               />
             </div>
           </div>

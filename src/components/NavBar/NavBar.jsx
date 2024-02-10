@@ -82,6 +82,7 @@ const NavBar = ({
   unFreezeScreen,
   selectedSection,
   handleSectionSelection,
+  selectedLanguage
 }) => {
   const [atHome, setAtHome] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);

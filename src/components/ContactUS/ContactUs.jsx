@@ -24,7 +24,7 @@ const ContactLink = ({link, icon, text ="", iconColor= ""}) => {
   );
 };
 
-const ContactUs = ({ inMobile, handleLoading }) => {
+const ContactUs = ({ inMobile, handleLoading, selectedLanguage }) => {
   const [messageData, setMessageData] = useState(messageModel);
   const formRef = useRef();
 
@@ -39,7 +39,7 @@ const ContactUs = ({ inMobile, handleLoading }) => {
       const mailData = {
         receiver: EmailData.supportMailReceiver,
         remittent: messageData.userEmail,
-        subject: Langs["en"].globalUI.messageSended,
+        subject: Langs[selectedLanguage].globalUI.messageSended,
         message: messageData.message,
       };
 
@@ -49,12 +49,12 @@ const ContactUs = ({ inMobile, handleLoading }) => {
       cleanView();
 
       handleLoading(false);
-      notify(Langs["en"].contactSectionUI.sendSuccess, notificationType.success);
+      notify(Langs[selectedLanguage].contactSectionUI.sendSuccess, notificationType.success);
 
     } catch (error) {
       console.log("⛔", error);
       handleLoading(false);
-      notify(Langs["en"].errorsUI.mailError, notificationType.error);
+      notify(Langs[selectedLanguage].errorsUI.mailError, notificationType.error);
     }
 
   }
@@ -68,8 +68,8 @@ const ContactUs = ({ inMobile, handleLoading }) => {
 
   return (
     <SectionWrapper
-      title={Langs["en"].contactSectionUI.title}
-      sectionId={Langs["en"].navbarUI.contact}
+      title={Langs[selectedLanguage].contactSectionUI.title}
+      sectionId={Langs[selectedLanguage].navbarUI.contact}
       backGround="nav-bg"
     >
       <div className="w-full flex flex-col py-8 gap-4">
@@ -105,7 +105,7 @@ const ContactUs = ({ inMobile, handleLoading }) => {
                     <span className="text-2xl">
                       <AiOutlineMail />
                     </span>
-                    {Langs["en"].contactSectionUI.sendMessageButton}
+                    {Langs[selectedLanguage].contactSectionUI.sendMessageButton}
                   </button>
                 </div>
               </div>

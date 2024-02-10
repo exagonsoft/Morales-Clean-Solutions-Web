@@ -9,7 +9,7 @@ import {
 } from "@/data/MockData";
 import Estimator from "../Estimator/Estimator";
 
-const PlanCard = ({ title, lacking, included, showBookerHandler }) => {
+const PlanCard = ({ title, lacking, included, showBookerHandler, selectedLanguage }) => {
   return (
     <div className="flex justify-between items-start w-full flex-col gap-2 p-4 rounded-lg shadow-lg bg-[var(--color-secondary)] min-h-[25rem] hover:scale-[1.03] transitions">
       <div className="flex flex-col justify-start items-start">
@@ -36,18 +36,18 @@ const PlanCard = ({ title, lacking, included, showBookerHandler }) => {
           <span className="text-2xl">
             <FaTruck />
           </span>
-          {Langs["en"].globalUI.bookOnline}
+          {Langs[selectedLanguage].globalUI.bookOnline}
         </button>
       </div>
     </div>
   );
 };
 
-const PricingSection = ({ showBookerHandler }) => {
+const PricingSection = ({ showBookerHandler, selectedLanguage  }) => {
   return (
     <SectionWrapper
-      sectionId={Langs["en"].navbarUI.pricing}
-      title={Langs["en"].pricingSectionUI.title}
+      sectionId={Langs[selectedLanguage].navbarUI.pricing}
+      title={Langs[selectedLanguage].pricingSectionUI.title}
       backGround="nav-bg"
     >
       <div className="w-full flex flex-col">
@@ -57,18 +57,21 @@ const PricingSection = ({ showBookerHandler }) => {
             lacking={packagedWastePlan.lacks}
             included={packagedWastePlan.includes}
             showBookerHandler={showBookerHandler}
+            selectedLanguage={selectedLanguage}
           />
           <PlanCard
             title={blurredWastePlan.name}
             lacking={blurredWastePlan.lacks}
             included={blurredWastePlan.includes}
             showBookerHandler={showBookerHandler}
+            selectedLanguage={selectedLanguage}
           />
           <PlanCard
             title={hazardousWastePlan.name}
             lacking={hazardousWastePlan.lacks}
             included={hazardousWastePlan.includes}
             showBookerHandler={showBookerHandler}
+            selectedLanguage={selectedLanguage}
           />
         </div>
         <div className="w-full justify-center items-center flex flex-col gap-2 mb-12">

@@ -6,9 +6,8 @@ import { motion } from "framer-motion";
 import { Langs } from "@/langs/langs";
 import NumberCounter from "number-counter";
 import { FaTruck } from "react-icons/fa";
-import { Dimensions } from "@/settings/constants";
 
-const HeroSection = ({ inMobile, showBookerHandler }) => {
+const HeroSection = ({ inMobile, showBookerHandler, selectedLanguage  }) => {
   const transition = { type: "spring", duration: 3 };
   const backgroundTransition = { type: "spring", duration: 1.5 };
 
@@ -23,21 +22,21 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
               transition={{ ...transition, type: "tween" }}
             ></motion.div>
             <span className="w-full text-xs">
-              {Langs["en"].heroSectionUI.bestHaulerAd}
+              {Langs[selectedLanguage].heroSectionUI.bestHaulerAd}
             </span>
           </div>
           <div className="hero-heading">
             <div>
               <span className="stroke-text">
-                {Langs["en"].heroSectionUI.bestHaulerAdText1}{" "}
+                {Langs[selectedLanguage].heroSectionUI.bestHaulerAdText1}{" "}
               </span>
-              <span>{Langs["en"].heroSectionUI.bestHaulerAdText2}</span>
+              <span>{Langs[selectedLanguage].heroSectionUI.bestHaulerAdText2}</span>
             </div>
             <div>
-              <span>{Langs["en"].heroSectionUI.bestHaulerAdText3}</span>
+              <span>{Langs[selectedLanguage].heroSectionUI.bestHaulerAdText3}</span>
             </div>
             <div>
-              <span>{Langs["en"].heroSectionUI.bestHaulerAdSlogan}</span>
+              <span>{Langs[selectedLanguage].heroSectionUI.bestHaulerAdSlogan}</span>
             </div>
           </div>
           <div className="hero-decos">
@@ -50,7 +49,7 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
                   preFix="+"
                 ></NumberCounter>
               </span>
-              <span>{Langs["en"].heroSectionUI.monthlyDates}</span>
+              <span>{Langs[selectedLanguage].heroSectionUI.monthlyDates}</span>
             </div>
             <div>
               <span>
@@ -61,7 +60,7 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
                   preFix="+"
                 ></NumberCounter>
               </span>
-              <span>{Langs["en"].heroSectionUI.happyClients}</span>
+              <span>{Langs[selectedLanguage].heroSectionUI.happyClients}</span>
             </div>
             <div>
               <span>
@@ -72,7 +71,7 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
                   preFix="+"
                 ></NumberCounter>
               </span>
-              <span>{Langs["en"].heroSectionUI.experienceYears}</span>
+              <span>{Langs[selectedLanguage].heroSectionUI.experienceYears}</span>
             </div>
           </div>
           <div className="hero-buttons w-full">
@@ -80,7 +79,7 @@ const HeroSection = ({ inMobile, showBookerHandler }) => {
               <span className="text-2xl">
                 <FaTruck />
               </span>
-              {Langs["en"].globalUI.bookOnline}
+              {Langs[selectedLanguage].globalUI.bookOnline}
             </button>
           </div>
         </div>

@@ -68,7 +68,7 @@ const LinksBlock = ({ handleSectionSelection, selectedSection }) => (
   </>
 );
 
-const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
+const Footer = ({ inMobile, selectedSection, handleSectionSelection, selectedLanguage }) => {
   return (
     <section id="footer" className="w-full mt-8">
       <div className="w-full flex flex-col">
@@ -163,7 +163,7 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection }) => {
         <div className="w-full flex flex-col gap-2 justify-center items-center p-4 bg-[--color-primary]">
           <div className="w-full flex justify-center items-center">
             <span className=" text-center">
-              {Langs["en"].globalUI.footerSlogan}
+              {Langs[selectedLanguage].globalUI.footerSlogan}
             </span>
           </div>
           <div className="w-full flex justify-center items-center">

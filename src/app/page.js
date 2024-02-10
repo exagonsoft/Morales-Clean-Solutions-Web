@@ -22,6 +22,7 @@ export default function Home() {
   const [showBooker, setShowBooker] = useState(false);
   const [selectedSection, setSelectedSection] = useState("");
   const [loading, setIsLoading] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
 
   const freezeScreen = () => {
     document.body.style.overflowY = "hidden";
@@ -81,7 +82,7 @@ export default function Home() {
         <></>
       )}
       {showBooker ? (
-        <ReservationBooker hideBookerHandler={hideBookerHandler} handleLoading={handleLoading}/>
+        <ReservationBooker hideBookerHandler={hideBookerHandler} handleLoading={handleLoading} selectedLanguage={selectedLanguage}/>
       ) : (
         <></>
       )}
@@ -90,20 +91,23 @@ export default function Home() {
         unFreezeScreen={unFreezeScreen}
         selectedSection={selectedSection}
         handleSectionSelection={handleSectionSelection}
+        selectedLanguage={selectedLanguage}
       />
-      <HeroSection inMobile={inMobile} showBookerHandler={showBookerHandler} />
+      <HeroSection inMobile={inMobile} showBookerHandler={showBookerHandler} selectedLanguage={selectedLanguage}/>
       <ServicesSection
         inMobile={inMobile}
         showBookerHandler={showBookerHandler}
+        selectedLanguage={selectedLanguage}
       />
-      <PricingSection showBookerHandler={showBookerHandler} />
-      <AboutSection inMobile={inMobile} />
-      <ContactUs inMobile={inMobile} handleLoading={handleLoading}/>
-      <Testimonials />
+      <PricingSection showBookerHandler={showBookerHandler} selectedLanguage={selectedLanguage}/>
+      <AboutSection inMobile={inMobile} selectedLanguage={selectedLanguage}/>
+      <ContactUs inMobile={inMobile} handleLoading={handleLoading} selectedLanguage={selectedLanguage}/>
+      <Testimonials selectedLanguage={selectedLanguage}/>
       <Footer
         selectedSection={selectedSection}
         handleSectionSelection={handleSectionSelection}
         inMobile={inMobile}
+        selectedLanguage={selectedLanguage}
       />
     </main>
   );

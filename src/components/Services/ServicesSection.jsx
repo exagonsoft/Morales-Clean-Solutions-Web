@@ -40,12 +40,12 @@ const ServiceCard = ({ title, description, inMobile }) => {
   );
 };
 
-const ServicesSection = ({inMobile, showBookerHandler}) => {
+const ServicesSection = ({inMobile, showBookerHandler, selectedLanguage }) => {
 
   return (
     <SectionWrapper
-      sectionId={Langs["en"].navbarUI.services}
-      title={Langs["en"].servicesSectionUI.title}
+      sectionId={Langs[selectedLanguage].navbarUI.services}
+      title={Langs[selectedLanguage].servicesSectionUI.title}
     >
       <div className="services-container pb-[4rem] sm:pt-[3rem] pt-[1rem]">
         <div className="w-full flex flex-col gap-4 items-center">
@@ -61,7 +61,7 @@ const ServicesSection = ({inMobile, showBookerHandler}) => {
         <div className="w-max flex flex-col justify-center items-center gap-4">
           <div className="w-max flex flex-col justify-center items-center gap-4 p-2 rounded-lg services-items-list shadow-lg">
             <span className="text-white font-bold uppercase p-4 w-max">
-              {Langs["en"].servicesSectionUI.recyclableList}
+              {Langs[selectedLanguage].servicesSectionUI.recyclableList}
             </span>
             <div className="w-full flex flex-col items-center gap-4">
               {RecyclableList.map((material, index) => (
@@ -78,7 +78,7 @@ const ServicesSection = ({inMobile, showBookerHandler}) => {
               <span className="text-2xl">
                 <FaTruck />
               </span>
-              {Langs["en"].globalUI.bookOnline}
+              {Langs[selectedLanguage].globalUI.bookOnline}
             </button>
           </div>
         </div>

@@ -2,13 +2,12 @@ import React from "react";
 import "./testimonialstyles.css";
 import SectionWrapper from "../Reusable/SectionWrapper";
 import { Langs } from "@/langs/langs";
-import { NavLinks } from "@/settings/constants";
 
-const Testimonials = () => {
+const Testimonials = ({selectedLanguage}) => {
   return (
     <SectionWrapper
-      title={Langs["en"].testimonialSectionUI.title}
-      sectionId={Langs["en"].navbarUI.testimonials}
+      title={Langs[selectedLanguage].testimonialSectionUI.title}
+      sectionId={Langs[selectedLanguage].navbarUI.testimonials}
     />
   );
 };

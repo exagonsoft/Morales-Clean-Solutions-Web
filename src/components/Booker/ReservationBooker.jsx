@@ -18,7 +18,7 @@ import {
 import { getMonthNames } from "@/utils/utilfuntions";
 import { notify } from "@/handlers/notificationsHandler";
 
-const ReservationBooker = ({ hideBookerHandler, handleLoading }) => {
+const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage }) => {
   const [reservationData, setReservationData] = useState(reservationModel);
   const [unavailableDates, setUnavailableDates] = useState([]);
 
@@ -72,7 +72,7 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading }) => {
     const mailData = {
       receiver: reservationData.userEmail,
       remittent: EmailData.noReplay,
-      subject: Langs["en"].globalUI.reservationBooked,
+      subject: Langs[selectedLanguage].globalUI.reservationBooked,
       message: _message,
     };
     let _result = await sendMailHandler(mailData);
@@ -101,7 +101,7 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading }) => {
     const mailData = {
       receiver: EmailData.supportMailReceiver,
       remittent: EmailData.noReplay,
-      subject: Langs["en"].globalUI.reservationBooked,
+      subject: Langs[selectedLanguage].globalUI.reservationBooked,
       message: _message,
     };
     let _result = await sendMailHandler(mailData);
@@ -115,7 +115,7 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading }) => {
     } catch (error) {
       console.log("⛔", error);
       handleLoading(false);
-      notify(Langs["en"].errorsUI.createReservation, notificationType.error);
+      notify(Langs[selectedLanguage].errorsUI.createReservation, notificationType.error);
     }
 
     try {
@@ -124,12 +124,12 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading }) => {
     } catch (error) {
       console.log("⛔", error);
       handleLoading(false);
-      notify(Langs["en"].errorsUI.mailError, notificationType.error);
+      notify(Langs[selectedLanguage].errorsUI.mailError, notificationType.error);
     }
 
     hideBookerHandler();
     handleLoading(false);
-    notify(Langs["en"].successUI.createReservation, notificationType.success);
+    notify(Langs[selectedLanguage].successUI.createReservation, notificationType.success);
   };
 
   const loadReservations = async () => {
@@ -149,7 +149,7 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading }) => {
     } catch (error) {
       console.log("", error);
       handleLoading(false);
-      notify(Langs["en"].errorsUI.getReservations, notificationType.error);
+      notify(Langs[selectedLanguage].errorsUI.getReservations, notificationType.error);
     }
   };
 
@@ -243,10 +243,10 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading }) => {
                     className="regular-button cancel"
                     onClick={hideBookerHandler}
                   >
-                    {Langs["en"].globalUI.cancel}
+                    {Langs[selectedLanguage].globalUI.cancel}
                   </button>
                   <button className="regular-button accept">
-                    {Langs["en"].globalUI.ok}
+                    {Langs[selectedLanguage].globalUI.ok}
                   </button>
                 </div>
               </form>
