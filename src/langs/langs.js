@@ -1,4 +1,8 @@
 export const Langs = {
+  langList: [
+    {key: 'en', text: 'English'},
+    {key: 'es', text: 'Español'}
+  ],
   en: {
     globalUI: {
       bookOnline: "Book Online to save 20%",

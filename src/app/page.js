@@ -103,6 +103,7 @@ export default function Home() {
       <Footer
         selectedSection={selectedSection}
         handleSectionSelection={handleSectionSelection}
+        inMobile={inMobile}
       />
     </main>
   );
