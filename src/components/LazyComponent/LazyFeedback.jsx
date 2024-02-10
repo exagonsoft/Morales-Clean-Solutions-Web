@@ -3,9 +3,9 @@ import "./lazyfeedbackstyles.css"
 
 const LazyFeedback = ({minHeight}) => {
   return (
-    <div className={`w-full relative`}>
-      <img src="/loaderbackground.webp" alt="No Data..." className={`loader h-[${minHeight}]`} />
-      <div className={`effect h-[${minHeight}]`}></div>
+    <div className={`w-full relative `} style={{height: minHeight}}>
+      <img src="/loaderbackground.webp" alt="No Data..." className={`loader h-full`}/>
+      <div className={`effect h-full`}></div>
     </div>
   )
 }

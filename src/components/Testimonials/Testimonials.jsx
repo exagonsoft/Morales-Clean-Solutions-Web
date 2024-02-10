@@ -31,7 +31,7 @@ const Testimonials = ({ selectedLanguage, showOpinionHandler }) => {
           </div>
         </div>
         <div className="w-full flex flex-col gap-12 sm:justify-end justify-center items-center">
-          <div className="w-full flex">
+          <div className="w-full flex items-end ">
             <FeedBack />
           </div>
           <div className="hero-buttons w-full">

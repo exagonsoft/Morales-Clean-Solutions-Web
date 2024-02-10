@@ -2,6 +2,7 @@ import { listFeedbacks } from "@/handlers/feedbackHandler";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import LazyFeedback from "../LazyComponent/LazyFeedback";
+import { listUsers } from "@/handlers/userHandler";
 
 const TestimonialCard = ({ name, picture = "", feedback }) => {
   const transition = { type: "spring", duration: 1.5 };
@@ -13,7 +14,7 @@ const TestimonialCard = ({ name, picture = "", feedback }) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ ...transition, type: "tween" }}
-      className="flex flex-col relative gap-4 py-2 min-h-[23rem] items-center"
+      className="flex flex-col relative gap-4 py-2 min-h-[23rem] items-center mb-4"
     >
       <img
         src={picture}
@@ -69,20 +70,29 @@ const FeedBack = () => {
     setIsLoading((prevState) => state);
   };
 
+  const getListUsers = async () => {
+    try {
+      const _res = await listUsers();
+    } catch (error) {
+      console.log("Error Listing Users: ", error);
+    }
+  };
+
   useEffect(() => {
+    getListUsers();
     loadFeedBacks();
   }, []);
 
   useEffect(() => {
     const intervalId = setInterval(updateFeedback, 10000);
-    handleLoading(false);
+    //handleLoading(false);
     return () => clearInterval(intervalId);
   }, [feedbacks.length]);
 
   return (
     <>
       {isLoading ? (
-        <LazyFeedback minHeight="23rem" />
+        <LazyFeedback minHeight="84%" />
       ) : feedbacks.length > 0 ? (
         <TestimonialCard
           name={`${feedbacks[currentFeedbackIndex]?.creator.first_name} ${feedbacks[currentFeedbackIndex]?.creator?.last_name}`}

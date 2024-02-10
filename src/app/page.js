@@ -67,18 +67,6 @@ export default function Home() {
     }
   };
 
-  const listUsers = async () => {
-    try {
-      const _res = await listUsers();
-    } catch (error) {
-      console.log("Error Listing Users: ", error);
-    }
-  };
-
-  useEffect(() => {
-    listUsers();
-  }, []);
-
   useEffect(() => {
     // Check window width only in client-side (browser) environment
     const handleResize = () => {
