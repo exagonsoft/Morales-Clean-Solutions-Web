@@ -1,6 +1,4 @@
 export const feedBackModel = {
-  userName: String(),
-  userEmail: String(),
-  jobPosition: String(),
+  userID: String(),
   feedBack: String(),
 };

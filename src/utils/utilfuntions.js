@@ -40,3 +40,7 @@ export const getYearsList = () => {
 
   return years;
 };
+
+export const getRandomSignature = () => {
+  
+}

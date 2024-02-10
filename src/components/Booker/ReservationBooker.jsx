@@ -126,7 +126,7 @@ const ReservationBooker = ({
       let _user = await getUser(userData.email);
       let _newUser = {};
 
-      if (_user.ok) {
+      if (_user?.ok) {
         _user = await _user.json();
         _newUser = JSON.parse(_user);
       } else {
@@ -136,7 +136,6 @@ const ReservationBooker = ({
       }
       
       reservationData.userID = _newUser._id;
-      console.log("New Reservation: ", reservationData);
       const _result = await createReservation(reservationData);
     } catch (error) {
       console.log("⛔", error);
@@ -203,7 +202,7 @@ const ReservationBooker = ({
         <div className="relative flex flex-col px-8 py-4 rounded-lg shadow-xl bg-[--color-secondary] border-t-[--color-primary] border-t-[.5rem] sm:w-[60%] w-[94%] animatedEntrance">
           <div className="w-full flex flex-col justify-center items-center gap-8 sm:my-0 my-8">
             <h1 className="text-white font-bold uppercase sm:text-[1.5rem] text-[1rem] text-center">
-              Book your reservation Online
+              {Langs[selectedLanguage].globalUI.bookReservation}
             </h1>
             <div className="w-full flex">
               <form
@@ -213,7 +212,7 @@ const ReservationBooker = ({
                 <div className="w-full flex sm:flex-row flex-col gap-4">
                   <div className="w-full p-2 flex flex-col gap-4 justify-start items-center">
                     <span className="sm:text-[1.2rem] text-[.8rem] font-bold">
-                      Reservation Data
+                    {Langs[selectedLanguage].globalUI.reservationData}
                     </span>
                     <Calendar
                       id={"reservationData"}
@@ -224,7 +223,7 @@ const ReservationBooker = ({
                   </div>
                   <div className="w-full flex justify-start  flex-col gap-4 p-2">
                     <span className="self-center sm:text-[1.2rem] text-[.8rem] font-bold">
-                      User Data
+                    {Langs[selectedLanguage].globalUI.userData}
                     </span>
                     <input
                       id="firstNameInput"

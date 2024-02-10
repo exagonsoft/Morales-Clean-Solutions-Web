@@ -7,7 +7,6 @@ import { Langs } from "@/langs/langs";
 import { RecyclableList, Services } from "@/data/MockData";
 import { motion } from "framer-motion";
 import { FaTruck } from "react-icons/fa";
-import { Dimensions } from "@/settings/constants";
 
 const RecyclableItem = ({ category, items }) => {
   return (

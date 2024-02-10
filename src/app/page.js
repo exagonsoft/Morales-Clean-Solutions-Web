@@ -16,10 +16,12 @@ import { useEffect, useState } from "react";
 import ContactUs from "@/components/ContactUS/ContactUs";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import Loader from "@/components/Loader/Loader";
+import OpinionForm from "@/components/Opinion/OpinionForm";
 
 export default function Home() {
   const [inMobile, setInMobile] = useState(false);
   const [showBooker, setShowBooker] = useState(false);
+  const [showOpinionForm, setShowOpinionFrom] = useState(false);
   const [selectedSection, setSelectedSection] = useState("");
   const [loading, setIsLoading] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
@@ -42,13 +44,23 @@ export default function Home() {
     unFreezeScreen();
   };
 
+  const showOpinionHandler = () => {
+    setShowOpinionFrom((prevState) => true);
+    freezeScreen();
+  };
+
+  const hideOpinionHandler = () => {
+    setShowOpinionFrom((prevState) => false);
+    unFreezeScreen();
+  };
+
   const handleSectionSelection = (section) => {
     setSelectedSection((prevData) => section);
   };
 
   const handleLoading = (loading) => {
     setIsLoading((prevData) => loading)
-    if(loading || showBooker){
+    if(loading || showBooker || showOpinionForm){
       freezeScreen();
     }else{
       unFreezeScreen();
@@ -86,6 +98,11 @@ export default function Home() {
       ) : (
         <></>
       )}
+      {showOpinionForm ? (
+        <OpinionForm hideOpinionHandler={hideOpinionHandler} handleLoading={handleLoading} selectedLanguage={selectedLanguage}/>
+      ) : (
+        <></>
+      )}
       <NavBar
         freezeScreen={freezeScreen}
         unFreezeScreen={unFreezeScreen}
@@ -102,7 +119,7 @@ export default function Home() {
       <PricingSection showBookerHandler={showBookerHandler} selectedLanguage={selectedLanguage}/>
       <AboutSection inMobile={inMobile} selectedLanguage={selectedLanguage}/>
       <ContactUs inMobile={inMobile} handleLoading={handleLoading} selectedLanguage={selectedLanguage}/>
-      <Testimonials selectedLanguage={selectedLanguage}/>
+      <Testimonials selectedLanguage={selectedLanguage} showOpinionHandler={showOpinionHandler}/>
       <Footer
         selectedSection={selectedSection}
         handleSectionSelection={handleSectionSelection}

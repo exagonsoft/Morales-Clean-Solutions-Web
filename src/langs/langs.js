@@ -6,6 +6,10 @@ export const Langs = {
   en: {
     globalUI: {
       bookOnline: "Book Online to save 20%",
+      bookReservation: "Book your reservation online",
+      reservationData: "Reservation Data",
+      userData: "User Data",
+      sendFeedback: "Give us your opinion",
       estimate: "Get free estimation",
       cancel: "Cancel",
       ok: "Proceed",
@@ -23,10 +27,12 @@ export const Langs = {
     },
     successUI: {
       createReservation: "Reservation booked successfully",
+      createFeedBack: "Thanks for your Support",
     },
     errorsUI: {
       getReservations: "Error getting reservations list",
       createReservation: "Error booking the reservation",
+      createFeedBack: "Error sending your feedback",
       mailError: "Error sending Mail",
     },
     navbarUI: {

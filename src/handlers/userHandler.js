@@ -13,6 +13,7 @@ export const createUser = async (user) => {
         return null;
       }
     } catch (error) {
+      console.log("🚨API Error: ", error);
       throw(new Error("Error while creating the user"))
     }
   };
@@ -32,6 +33,5 @@ export const createUser = async (user) => {
       }
     } catch (error) {
       console.log("🚨API Error: ", error);
-      throw(new Error("Error while getting the user"))
     }
   };

@@ -1,9 +1,9 @@
-export const createReservation = async (reservation) => {
+export const createFeedBack = async (feedback) => {
   try {
-    const res = await fetch("/api/reservations/new", {
+    const res = await fetch("/api/feedback/new", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(reservation),
+      body: JSON.stringify(feedback),
       cache: "no-store",
     });
 
@@ -14,13 +14,13 @@ export const createReservation = async (reservation) => {
     }
   } catch (error) {
     console.log("🚨API Error: ", error);
-    throw new Error("Error while booking the reservation");
+    throw new Error("Error while saving your feedback");
   }
 };
 
-export const listReservations = async () => {
+export const listFeedbacks = async () => {
   try {
-    const res = await fetch("/api/reservations", {
+    const res = await fetch("/api/feedback", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
       cache: "no-store",
@@ -33,6 +33,6 @@ export const listReservations = async () => {
     }
   } catch (error) {
     console.log("🚨API Error: ", error);
-    throw new Error("Error while listing the reservations");
+    throw new Error("Error while listing the feedbacks");
   }
 };
