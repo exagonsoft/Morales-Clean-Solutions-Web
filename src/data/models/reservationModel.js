@@ -1,7 +1,4 @@
 export const reservationModel = {
-    userName: String(),
-    userEmail: String(),
-    userAddress: String(),
-    userMobile: String(),
+    userID: String(),
     date: new Date()
 }

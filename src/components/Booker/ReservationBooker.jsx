@@ -17,13 +17,24 @@ import {
 } from "@/settings/constants";
 import { getMonthNames } from "@/utils/utilfuntions";
 import { notify } from "@/handlers/notificationsHandler";
+import { createUser, getUser } from "@/handlers/userHandler";
+import { userModel } from "@/data/models/userModel";
 
-const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage }) => {
+const ReservationBooker = ({
+  hideBookerHandler,
+  handleLoading,
+  selectedLanguage,
+}) => {
+  const [userData, setUserData] = useState(userModel);
   const [reservationData, setReservationData] = useState(reservationModel);
   const [unavailableDates, setUnavailableDates] = useState([]);
 
   const updateReservationData = (value, target) => {
     setReservationData((prevData) => ({ ...prevData, [target]: value }));
+  };
+
+  const updateUserData = (value, target) => {
+    setUserData((prevData) => ({ ...prevData, [target]: value }));
   };
 
   const sendUserMail = async () => {
@@ -35,7 +46,7 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
       reservationData.date.getFullYear();
     let _message = EmailData.htmlUserReservationBookedBody.replace(
       "user_name",
-      reservationData.userName
+      `${userData.first_name} ${userData.last_name}`
     );
     _message = _message.replace("reservation_date", _reservationDateString);
     _message = _message.replace("_year", `2002-${new Date().getFullYear()}`);
@@ -70,7 +81,7 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
     );
 
     const mailData = {
-      receiver: reservationData.userEmail,
+      receiver: userData.email,
       remittent: EmailData.noReplay,
       subject: Langs[selectedLanguage].globalUI.reservationBooked,
       message: _message,
@@ -87,13 +98,13 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
       reservationData.date.getFullYear();
     let _message = EmailData.htmlSupportReservationBookedBody.replace(
       "user_name",
-      reservationData.userName
+      `${userData.first_name} ${userData.last_name}`
     );
-    _message = _message.replace("user_email", reservationData.userEmail);
-    _message = _message.replace("user_mobile", reservationData.userMobile);
+    _message = _message.replace("user_email", userData.email);
+    _message = _message.replace("user_mobile", userData.mobile);
     _message = _message.replace(
       "user_address",
-      reservationData.userAddress ? reservationData.userAddress : "--"
+      userData.address ? userData.address : "--"
     );
     _message = _message.replace("reservation_date", _reservationDateString);
     _message = _message.replace("_year", `2002-${new Date().getFullYear()}`);
@@ -111,11 +122,29 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
     e.preventDefault();
     try {
       handleLoading(true);
+
+      let _user = await getUser(userData.email);
+      let _newUser = {};
+
+      if (_user.ok) {
+        _user = await _user.json();
+        _newUser = JSON.parse(_user);
+      } else {
+        _newUser = await createUser(userData);
+        _newUser = await _newUser.json();
+        _newUser = JSON.parse(_newUser);
+      }
+      
+      reservationData.userID = _newUser._id;
+      console.log("New Reservation: ", reservationData);
       const _result = await createReservation(reservationData);
     } catch (error) {
       console.log("⛔", error);
       handleLoading(false);
-      notify(Langs[selectedLanguage].errorsUI.createReservation, notificationType.error);
+      notify(
+        Langs[selectedLanguage].errorsUI.createReservation,
+        notificationType.error
+      );
     }
 
     try {
@@ -124,12 +153,18 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
     } catch (error) {
       console.log("⛔", error);
       handleLoading(false);
-      notify(Langs[selectedLanguage].errorsUI.mailError, notificationType.error);
+      notify(
+        Langs[selectedLanguage].errorsUI.mailError,
+        notificationType.error
+      );
     }
 
     hideBookerHandler();
     handleLoading(false);
-    notify(Langs[selectedLanguage].successUI.createReservation, notificationType.success);
+    notify(
+      Langs[selectedLanguage].successUI.createReservation,
+      notificationType.success
+    );
   };
 
   const loadReservations = async () => {
@@ -149,7 +184,10 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
     } catch (error) {
       console.log("", error);
       handleLoading(false);
-      notify(Langs[selectedLanguage].errorsUI.getReservations, notificationType.error);
+      notify(
+        Langs[selectedLanguage].errorsUI.getReservations,
+        notificationType.error
+      );
     }
   };
 
@@ -189,15 +227,27 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
                       User Data
                     </span>
                     <input
-                      id="nameInput"
-                      name="nameInput"
+                      id="firstNameInput"
+                      name="firstNameInput"
                       type="text"
                       required
                       autoComplete="name"
                       className="rounded-md px-4 py-1"
                       placeholder="Your Name..."
                       onChange={(e) =>
-                        updateReservationData(e.target.value, "userName")
+                        updateUserData(e.target.value, "first_name")
+                      }
+                    />
+                    <input
+                      id="lastNameInput"
+                      name="lastNameInput"
+                      type="text"
+                      required
+                      autoComplete="last name"
+                      className="rounded-md px-4 py-1"
+                      placeholder="Your Family Last Name..."
+                      onChange={(e) =>
+                        updateUserData(e.target.value, "last_name")
                       }
                     />
                     <input
@@ -208,7 +258,7 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
                       className="rounded-md px-4 py-1"
                       placeholder="Your Address..."
                       onChange={(e) =>
-                        updateReservationData(e.target.value, "userAddress")
+                        updateUserData(e.target.value, "address")
                       }
                     />
                     <input
@@ -219,21 +269,17 @@ const ReservationBooker = ({ hideBookerHandler, handleLoading, selectedLanguage 
                       autoComplete="email"
                       className="rounded-md px-4 py-1"
                       placeholder="Your Email..."
-                      onChange={(e) =>
-                        updateReservationData(e.target.value, "userEmail")
-                      }
+                      onChange={(e) => updateUserData(e.target.value, "email")}
                     />
                     <input
                       id="mobilInput"
                       name="mobilInput"
                       type="text"
                       required
-                      autoComplete="mobile"
+                      autoComplete="phone"
                       className="rounded-md px-4 py-1"
                       placeholder="Your Mobile..."
-                      onChange={(e) =>
-                        updateReservationData(e.target.value, "userMobile")
-                      }
+                      onChange={(e) => updateUserData(e.target.value, "mobile")}
                     />
                   </div>
                 </div>

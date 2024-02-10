@@ -1,7 +1,7 @@
 export const Langs = {
   langList: [
-    {key: 'en', text: 'English'},
-    {key: 'es', text: 'Español'}
+    { key: "en", text: "English" },
+    { key: "es", text: "Español" },
   ],
   en: {
     globalUI: {
@@ -17,16 +17,17 @@ export const Langs = {
       friday: "Fri",
       saturday: "Sat",
       reservationBooked: "Reservation Booked",
-      footerSlogan: "We work every days to build a better, cleaner and green WORLD. Join us to save the PLANET.",
-      messageSended: "New contact message"
+      footerSlogan:
+        "We work every days to build a better, cleaner and green WORLD. Join us to save the PLANET.",
+      messageSended: "New contact message",
     },
     successUI: {
-      createReservation: "Reservation booked successfully"
+      createReservation: "Reservation booked successfully",
     },
     errorsUI: {
       getReservations: "Error getting reservations list",
       createReservation: "Error booking the reservation",
-      mailError: "Error sending Mail"
+      mailError: "Error sending Mail",
     },
     navbarUI: {
       services: "Services",
@@ -91,15 +92,20 @@ export const Langs = {
     contactSectionUI: {
       title: "Get in Contact",
       sendMessageButton: "Send Message",
-      sendSuccess: "Message sended successfully"
+      sendSuccess: "Message sended successfully",
     },
     testimonialSectionUI: {
       title: "Clients Opinions",
-      
+      blockTitle1: "We do",
+      blockTitle2: ` care`,
+      blockText: `At Morales Haul Solutions, we believe that our clients' voices are the cornerstone of our success. Your feedback isn't just valuable, it's essential. It's the compass that guides us toward excellence, helping us refine our services and exceed your expectations every step of the way.
+      Every comment, suggestion, and testimonial you share with us serves as a beacon of insight, illuminating the path toward continuous improvement. Whether it's a word of praise for a job well done or constructive criticism that points out areas for growth, we welcome it all with open arms.
+      We're committed to listening, learning, and evolving to better serve you. Your satisfaction is our top priority, and your trust in Morales Clean Solutions is the fuel that drives us forward. Together, we're not just a company and its clients, we're partners in progress, working hand in hand 
+      to create a cleaner, greener future for generations to come.`,
+      thanksText: `🙏Thank you for choosing Morales Haul Solutions. Your feedback matters more than you know, and we're honored to have you as part of our community.`,
+      feedBack: 'Give your opinion'
     },
-    footerSection: {
-      
-    }
+    footerSection: {},
   },
   es: {},
 };

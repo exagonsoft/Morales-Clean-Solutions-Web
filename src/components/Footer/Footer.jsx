@@ -68,7 +68,12 @@ const LinksBlock = ({ handleSectionSelection, selectedSection }) => (
   </>
 );
 
-const Footer = ({ inMobile, selectedSection, handleSectionSelection, selectedLanguage }) => {
+const Footer = ({
+  inMobile,
+  selectedSection,
+  handleSectionSelection,
+  selectedLanguage,
+}) => {
   return (
     <section id="footer" className="w-full mt-8">
       <div className="w-full flex flex-col">
@@ -103,9 +108,19 @@ const Footer = ({ inMobile, selectedSection, handleSectionSelection, selectedLan
                   </option>
                 ))}
               </select>
-              <div className="w-full flex flex-col sm:items-start items-end">
-              <p className="">#5150 W 12TH ACE APT 211</p>
-              <p className="">HIALEAH, FL 33012</p>
+              <div className="w-full flex flex-col sm:items-start items-end gap-3">
+                <div className="w-full flex flex-col sm:items-start items-end">
+                <p className="">#5150 W 12TH ACE APT 211</p>
+                <p className="">HIALEAH, FL 33012</p>
+                </div>
+                <div className="w-fit flex flex-col gap-2 text-black">
+                  <p className="px-4 py-1 rounded-md bg-[var(--color-primary)] shadow-md border border-white">
+                    24 hours per day
+                  </p>
+                  <p className="px-4 py-1 rounded-md bg-[var(--color-primary)] shadow-md border border-white">
+                    7 days per week
+                  </p>
+                </div>
               </div>
             </div>
           </div>

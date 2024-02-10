@@ -4,16 +4,13 @@ import { errors } from "@/settings/constants";
 import { NextResponse } from "next/server";
 
 export const POST = async (req) => {
-  const { userName, userEmail, userMobile, userAddress, date } = await req.json();
+  const { userID, date } = await req.json();
 
   try {
     await connectToDB();
 
     const newReservation = new Reservation({
-      name: userName,
-      email: userEmail,
-      mobile: userMobile,
-      address: userAddress,
+      creator: userID,
       date: date
     });
 

@@ -19,12 +19,12 @@ const AboutSection = ({inMobile, selectedLanguage }) => {
       title={Langs[selectedLanguage].aboutSectionUI.title}
     >
       <div className="w-full flex flex-col gap-8 py-8">
-        <div className="w-full my-6">
+        <div className="w-full">
             <Carousel images={AboutImages} inMobile={inMobile}/>
         </div>
         <div className="w-full flex sm:flex-row flex-col gap-8">
           <div className="w-full flex flex-col justify-start items-center gap-4">
-            <h1 className="font-bold uppercase text-[2rem]">
+            <h1 className="font-bold uppercase sm:text-[2rem] text-[1.5rem]">
               <span className="stroke-text">Our</span>
               <span className="text-white"> Story</span>
             </h1>
@@ -39,7 +39,7 @@ const AboutSection = ({inMobile, selectedLanguage }) => {
             </div>
           </div>
           <div className="w-full flex flex-col justify-start items-center gap-4">
-            <h1 className="font-bold uppercase text-[2rem]">
+            <h1 className="font-bold uppercase sm:text-[2rem] text-[1.5rem]">
               <span className="stroke-text">Our</span>
               <span className="text-white"> Mission</span>
             </h1>
