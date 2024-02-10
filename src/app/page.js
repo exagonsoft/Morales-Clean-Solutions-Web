@@ -24,7 +24,7 @@ export default function Home() {
   const [showOpinionForm, setShowOpinionFrom] = useState(false);
   const [selectedSection, setSelectedSection] = useState("");
   const [loading, setIsLoading] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
 
   const freezeScreen = () => {
     document.body.style.overflowY = "hidden";
@@ -59,13 +59,25 @@ export default function Home() {
   };
 
   const handleLoading = (loading) => {
-    setIsLoading((prevData) => loading)
-    if(loading || showBooker || showOpinionForm){
+    setIsLoading((prevData) => loading);
+    if (loading || showBooker || showOpinionForm) {
       freezeScreen();
-    }else{
+    } else {
       unFreezeScreen();
     }
-  }
+  };
+
+  const listUsers = async () => {
+    try {
+      const _res = await listUsers();
+    } catch (error) {
+      console.log("Error Listing Users: ", error);
+    }
+  };
+
+  useEffect(() => {
+    listUsers();
+  }, []);
 
   useEffect(() => {
     // Check window width only in client-side (browser) environment
@@ -88,18 +100,22 @@ export default function Home() {
   return (
     <main className="flex min-h-screen overflow-hidden flex-col items-center">
       <ToastNotification />
-      {loading ? (
-        <Loader />
-      ) : (
-        <></>
-      )}
+      {loading ? <Loader /> : <></>}
       {showBooker ? (
-        <ReservationBooker hideBookerHandler={hideBookerHandler} handleLoading={handleLoading} selectedLanguage={selectedLanguage}/>
+        <ReservationBooker
+          hideBookerHandler={hideBookerHandler}
+          handleLoading={handleLoading}
+          selectedLanguage={selectedLanguage}
+        />
       ) : (
         <></>
       )}
       {showOpinionForm ? (
-        <OpinionForm hideOpinionHandler={hideOpinionHandler} handleLoading={handleLoading} selectedLanguage={selectedLanguage}/>
+        <OpinionForm
+          hideOpinionHandler={hideOpinionHandler}
+          handleLoading={handleLoading}
+          selectedLanguage={selectedLanguage}
+        />
       ) : (
         <></>
       )}
@@ -110,16 +126,30 @@ export default function Home() {
         handleSectionSelection={handleSectionSelection}
         selectedLanguage={selectedLanguage}
       />
-      <HeroSection inMobile={inMobile} showBookerHandler={showBookerHandler} selectedLanguage={selectedLanguage}/>
+      <HeroSection
+        inMobile={inMobile}
+        showBookerHandler={showBookerHandler}
+        selectedLanguage={selectedLanguage}
+      />
       <ServicesSection
         inMobile={inMobile}
         showBookerHandler={showBookerHandler}
         selectedLanguage={selectedLanguage}
       />
-      <PricingSection showBookerHandler={showBookerHandler} selectedLanguage={selectedLanguage}/>
-      <AboutSection inMobile={inMobile} selectedLanguage={selectedLanguage}/>
-      <ContactUs inMobile={inMobile} handleLoading={handleLoading} selectedLanguage={selectedLanguage}/>
-      <Testimonials selectedLanguage={selectedLanguage} showOpinionHandler={showOpinionHandler}/>
+      <PricingSection
+        showBookerHandler={showBookerHandler}
+        selectedLanguage={selectedLanguage}
+      />
+      <AboutSection inMobile={inMobile} selectedLanguage={selectedLanguage} />
+      <ContactUs
+        inMobile={inMobile}
+        handleLoading={handleLoading}
+        selectedLanguage={selectedLanguage}
+      />
+      <Testimonials
+        selectedLanguage={selectedLanguage}
+        showOpinionHandler={showOpinionHandler}
+      />
       <Footer
         selectedSection={selectedSection}
         handleSectionSelection={handleSectionSelection}
