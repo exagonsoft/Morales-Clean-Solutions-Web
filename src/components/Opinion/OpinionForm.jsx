@@ -45,7 +45,7 @@ const OpinionForm = ({
         _newUser = JSON.parse(_user);
       } else {
         _newUser = await createUser(userData);
-        _newUser = await _newUser.json();
+        _newUser = await _newUser?.json();
         _newUser = JSON.parse(_newUser);
       }
 

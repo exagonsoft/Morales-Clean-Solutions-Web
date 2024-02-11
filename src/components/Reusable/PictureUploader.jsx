@@ -11,7 +11,7 @@ const PictureUploader = ({ image, onChange}) => {
   const loadingImageFile = (event) => {
     const element = event.target.files[0];
     if (element) {
-      if (element.size > 1200000) {
+      if (element.size > 40000000) {
         setError("Max File Size 4mb");
         setTimeout(() => {
           setError("");
@@ -20,32 +20,11 @@ const PictureUploader = ({ image, onChange}) => {
       }
 
       let _newImage = {
-        image: "",
-        url: "",
+        image: element,
+        url: URL.createObjectURL(element),
       };
 
-      let _image = document.createElement("img");
-      _image.id = "image";
-      _image.className = "campaign-card-image";
-      _image.src = URL.createObjectURL(element);
-
-      const reader = new FileReader();
-      reader.readAsDataURL(element);
-
-      reader.onloadend = () => {
-        let _url = URL.createObjectURL(element);
-        _url = _url.split();
-        _newImage.image = reader.result
-          .replace("data:", "")
-          .replace(/^.+,/, "");
-        _newImage.url = URL.createObjectURL(element);
-
-        onChange(_newImage);
-
-        _image.onload = function () {
-          URL.revokeObjectURL(_image.src); // free memory
-        };
-      };
+      onChange(_newImage);
     }
   };
 

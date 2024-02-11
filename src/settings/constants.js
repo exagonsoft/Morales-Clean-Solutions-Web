@@ -290,6 +290,11 @@ export const customErrors = {
     message: "😶 Uncontrolled Server Error Encounter",
     code: "internalServerError",
   },
+  uploadError: {
+    statusCode: 504,
+    message: "📤 Error Uploading file to Cloud Storage",
+    code: "uploadError",
+  },
 };
 
 export const errors = {
@@ -302,4 +307,5 @@ export const errors = {
   systemMailError: "systemMailError",
   systemInvalidOperation: "systemInvalidOperation",
   internalServerError: "internalServerError",
+  uploadError: "uploadError",
 };
