@@ -19,7 +19,7 @@ const TestimonialCard = ({ name, picture = "", feedback }) => {
       <img
         src={picture}
         alt={`${name}'s Picture`}
-        className="rounded-full w-[50%] min-w-[50%] min-h-[50%]"
+        className="rounded-full w-[12rem] h-[12rem]"
         loading="lazy"
       />
       <span className="w-full flex text-start font-bold sm:text-[2rem] text-[1rem]">{`${name} say's:`}</span>
@@ -38,7 +38,7 @@ const NoFeedbacks = () => {
   );
 };
 
-const FeedBack = () => {
+const FeedBack = ({triggerFeedbackRefresh}) => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [currentFeedbackIndex, setCurrentFeedbackIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -88,6 +88,12 @@ const FeedBack = () => {
     handleLoading(false);
     return () => clearInterval(intervalId);
   }, [feedbacks.length]);
+
+  useEffect(() => {
+    loadFeedBacks();
+    handleLoading(false);
+  }, [triggerFeedbackRefresh])
+  
 
   return (
     <>

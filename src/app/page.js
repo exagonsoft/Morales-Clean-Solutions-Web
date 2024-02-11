@@ -25,6 +25,7 @@ export default function Home() {
   const [selectedSection, setSelectedSection] = useState("");
   const [loading, setIsLoading] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const [triggerFeedbackRefresh, setTriggerFeedbackRefresh] = useState(false);
 
   const freezeScreen = () => {
     document.body.style.overflowY = "hidden";
@@ -51,6 +52,7 @@ export default function Home() {
 
   const hideOpinionHandler = () => {
     setShowOpinionFrom((prevState) => false);
+    setTriggerFeedbackRefresh((prevState) => !prevState);
     unFreezeScreen();
   };
 
@@ -137,6 +139,7 @@ export default function Home() {
       <Testimonials
         selectedLanguage={selectedLanguage}
         showOpinionHandler={showOpinionHandler}
+        triggerFeedbackRefresh={triggerFeedbackRefresh}
       />
       <Footer
         selectedSection={selectedSection}

@@ -5,7 +5,7 @@ import { Langs } from "@/langs/langs";
 import FeedBack from "../Feedback/FeedBack";
 import { AiFillNotification } from "react-icons/ai";
 
-const Testimonials = ({ selectedLanguage, showOpinionHandler }) => {
+const Testimonials = ({ selectedLanguage, showOpinionHandler, triggerFeedbackRefresh }) => {
   return (
     <SectionWrapper
       title={Langs[selectedLanguage].testimonialSectionUI.title}
@@ -30,9 +30,9 @@ const Testimonials = ({ selectedLanguage, showOpinionHandler }) => {
             </p>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-12 sm:justify-end justify-center items-center">
+        <div className="w-full flex flex-col gap-4 sm:justify-end justify-center items-center">
           <div className="w-full flex items-end ">
-            <FeedBack />
+            <FeedBack triggerFeedbackRefresh={triggerFeedbackRefresh}/>
           </div>
           <div className="hero-buttons w-full">
             <button type="button" className="button !w-full" onClick={() => {showOpinionHandler()}}>

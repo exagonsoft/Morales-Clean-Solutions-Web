@@ -6,14 +6,15 @@ export class UploadService {
   constructor() {}
 
   async Upload(fileName, blobFile) {
+    console.log("💻Current OS: ",process.platform);
     const uploadFolder = path.join(process.cwd(), 'public');
     try {
       const buffer = Buffer.from(blobFile, "base64");
       if (!existsSync(uploadFolder)) {
         mkdirSync(uploadFolder);
       }
+      console.log("📁Folder Created");
       const filePath = path.join(uploadFolder, fileName);
-      console.log(filePath);
 
       // Write the buffer data to the file
       writeFile(filePath, buffer, { flag: "w" }, (error) => {
@@ -25,7 +26,7 @@ export class UploadService {
       });
       return true;
     } catch (error) {
-      console.log("Error: ", error);
+      console.log(errors.systemWriteError, error);
       throw new Error(errors.internalServerError, error);
     }
   }
