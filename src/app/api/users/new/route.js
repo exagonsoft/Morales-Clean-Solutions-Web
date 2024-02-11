@@ -20,7 +20,7 @@ export const POST = async (req) => {
       _date = _date.replace(" ", '_');
       _fileName = `${_name}_${_date}.png`;
       const uploadService = new UploadService();
-      uploadService.Upload(_fileName, image);
+      await uploadService.UploadAsync(_fileName, image);
     }
 
     const newUser = new User({
