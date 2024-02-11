@@ -30,7 +30,6 @@ const OpinionForm = ({
       picture: _newImage.url,
       image: _newImage.image,
     }));
-    console.log(_newImage);
   };
 
   const handleSubmit = async (e) => {

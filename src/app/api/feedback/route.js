@@ -10,7 +10,6 @@ export const GET = async (req) => {
     await connectToDB();
 
     const feedbacks = await FeedBack.find({}).populate('creator');
-    console.log(feedbacks);
 
     return NextResponse.json(JSON.stringify(feedbacks), { status: 200 });
   } catch (error) {

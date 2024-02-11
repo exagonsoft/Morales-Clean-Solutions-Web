@@ -137,7 +137,6 @@ const NavBar = ({
   }, []);
 
   useEffect(() => {
-    console.log(selectedSection);
   }, [selectedSection])
   
 

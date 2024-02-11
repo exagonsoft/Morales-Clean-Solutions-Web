@@ -62,8 +62,6 @@ const FeedBack = ({triggerFeedbackRefresh}) => {
     setCurrentFeedbackIndex((prevState) =>
       prevState < feedbacks.length - 1 ? prevState + 1 : 0
     );
-    console.log("Array length", feedbacks.length);
-    console.log("Current Index", currentFeedbackIndex);
   };
 
   const handleLoading = (state) => {
