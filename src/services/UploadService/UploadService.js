@@ -1,6 +1,7 @@
 import { errors } from "@/settings/constants";
 const { writeFile, mkdir } = require("fs/promises");
 const { existsSync } = require("fs");
+const { exec } = require("child_process");
 import path from "path";
 
 export class UploadService {
@@ -33,9 +34,11 @@ export class UploadService {
   // };
 
   async UploadAsync(fileName, blobFile) {
-    console.log("💻 Current OS:", process.platform);
+    const _currentOS = process.platform;
+    console.log("💻 Current OS:", _currentOS);
     const uploadFolder = path.join(process.cwd(), "public");
     const buffer = Buffer.from(blobFile, "base64");
+    const filePath = path.join(uploadFolder, fileName);
 
     // Check if the upload folder exists, create it if not
     if (!existsSync(uploadFolder)) {
@@ -56,7 +59,17 @@ export class UploadService {
 
     try {
       // Set file permissions (read and write for everyone)
-      await chmod(filePath, "666");
+      switch (_currentOS) {
+        case "linux":
+          await this.setLinuxFolderPermissions(uploadFolder);
+          break;
+        case "win32":
+          await this.setFolderPermissions(uploadFolder);
+          break;
+
+        default:
+          break;
+      }
     } catch (error) {
       console.error(
         `${errors.systemWriteError} trying to set upload folder permissions`,
@@ -69,8 +82,6 @@ export class UploadService {
     }
 
     try {
-      const filePath = path.join(uploadFolder, fileName);
-
       // Write the buffer data to the file asynchronously
       await writeFile(filePath, buffer, { flag: "w" });
       return true;
@@ -84,5 +95,38 @@ export class UploadService {
         error
       );
     }
+  }
+
+  async setFolderPermissions(folderPath) {
+    return new Promise((resolve, reject) => {
+      // Use icacls command to set folder permissions and enable inheritance
+      exec(
+        `icacls "${folderPath}" /grant todos:(OI)(CI)F /inheritance:e`,
+        (error, stdout, stderr) => {
+          if (error) {
+            console.error("Error setting folder permissions:", error);
+            reject(error);
+          } else {
+            console.log("Folder permissions set successfully:", stdout);
+            resolve();
+          }
+        }
+      );
+    });
+  }
+
+  async setLinuxFolderPermissions(folderPath) {
+    return new Promise((resolve, reject) => {
+      // Use chmod command to recursively set folder and file permissions
+      exec(`chmod -R 666 "${folderPath}"`, (error, stdout, stderr) => {
+        if (error) {
+          console.error("Error setting folder permissions:", error);
+          reject(error);
+        } else {
+          console.log("Folder permissions set successfully:", stdout);
+          resolve();
+        }
+      });
+    });
   }
 }
