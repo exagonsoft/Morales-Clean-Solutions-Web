@@ -85,7 +85,7 @@ const FeedBack = () => {
 
   useEffect(() => {
     const intervalId = setInterval(updateFeedback, 10000);
-    //handleLoading(false);
+    handleLoading(false);
     return () => clearInterval(intervalId);
   }, [feedbacks.length]);
 
