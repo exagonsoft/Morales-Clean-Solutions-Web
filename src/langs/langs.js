@@ -48,7 +48,7 @@ export const Langs = {
       bestHaulerAdText2: "Your",
       bestHaulerAdText3: "Space Clean",
       bestHaulerAdSlogan:
-        "We will be happy to help you to clean and organize your buildings without any effort from your behalf.",
+        "We will be happy to Haul all your derbies and organize your buildings without any effort from your behalf.",
       monthlyDates: "Monthly Dates",
       happyClients: "Satisfy Clients",
       experienceYears: "Years of Experience",
