@@ -50,8 +50,17 @@ const OpinionForm = ({
         _newUser = JSON.parse(_newUser);
       }
 
-      feedbackData.userID = _newUser._id;
-      const _result = await createFeedBack(feedbackData);
+      if (_newUser?._id) {
+        feedbackData.userID = _newUser._id;
+        const _result = await createFeedBack(feedbackData);
+      } else {
+        console.log("⛔Error creating user");
+        notify(
+          Langs[selectedLanguage].errorsUI.createFeedBack,
+          notificationType.error
+        );
+        return;
+      }
     } catch (error) {
       console.log("⛔", error);
       handleLoading(false);
@@ -124,7 +133,9 @@ const OpinionForm = ({
                       onChange={(e) => updateUserData(e.target.value, "email")}
                     />
                     <PictureUploader
-                      image={userData.picture ? userData.picture : "/profile.webp"}
+                      image={
+                        userData.picture ? userData.picture : "/profile.webp"
+                      }
                       onChange={onImageSelected}
                     />
                     <textarea
